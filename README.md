@@ -1,5 +1,5 @@
 # TW_ConGratZ_2021
-Colaboratori: Bighiu Razvan-Emanuel(E4) + Ciobotariu Andrei(E4)
+Colaboratori: Bighiu Razvan-Emanuel(E4) + Ciobotariu Andrei(E4) + Doru Petru Alexandru(3E1)
 
 Cerinta:
 Să se realizeze o aplicație Web prin intermediul căreia să se poată crea felicitări și carți de vizită.
