@@ -1,0 +1,64 @@
+body{
+    background-color: cornsilk;
+}
+.center{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.mainFrame{
+    background-color: #669999;
+    width:59%;
+    display: flex;
+    justify-content: center;
+    padding:20px 0px 20px 0px ;
+}
+.picker{
+    background-color: #669999;
+    width:19%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.picker>*{
+    height:150px;
+    width: 200px;
+    margin: 10px;
+    background-color: #cccccc;
+    padding:0px 10px 0px 10px;
+}
+
+
+.card img{
+    height: 400px;
+    width: 600px;
+}
+.buttons:not(#pubprivate,#pubcommunity) {
+    background-color: #669999;
+    width:19%;
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+
+    justify-content: space-around;
+    align-items: center;
+
+}
+/*
+.buttons>*{
+    flex:  1 1 50%;
+}*/
+.button{
+    background-color:#cccccc;
+    margin:10px;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+}
+.button img{
+    display: block;
+    justify-content: center;
+}
