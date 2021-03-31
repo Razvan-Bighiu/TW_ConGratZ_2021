@@ -1,0 +1,194 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*-----------------------------------------*/
+
+/* Inceput */
+
+body {
+	background-color: #CCCC9A;
+}
+
+header {
+	background-color: #9999ff;
+	height: 100px;
+	width: 100%;
+}
+
+div header button {
+	background-color: #666699;
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	text-decoration: none;
+ 	display: inline-block;
+ 	font-weight: 600;
+ 	font-size: 16px;
+ 	font-family: Arial; 
+  	margin: 4px 2px;
+  	cursor: pointer;
+  	border-radius: 12px;
+}
+
+.NewCard {
+	float: left;
+	margin-top: 25px;
+	margin-left: 10px;
+}
+
+div header input[type=text] {
+	background-color: #339966;
+  	padding: 14px 32px;
+  	border: none;
+  	margin-top: 25px;
+  	font-size: 16px;
+  	border-radius: 12px;
+}
+
+::placeholder {
+	color: white;
+}
+
+.LogIn {
+	float: right;
+	margin-top: 25px;
+	margin-right: 10px;
+}
+
+.SignIn {
+	float: right;
+	margin-top: 25px;
+	margin-right: 10px;
+}
+
+.continut {
+	background-color: white;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	margin: 20px;
+}
+
+.sectiuneImagine {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+	border: solid black;
+	width: 60%;
+}
+
+.butoane {
+	align-self: flex-start;
+}
+
+.sectiuneText{
+	width: 40%;
+}
+
+.text {
+	font-size: 40px;
+	font-weight: 600;
+	margin: 10px;
+}
+
+.user {
+	font-size: 30px;
+	margin: 10px;
+}
+
+.descriere {
+	font-size: 30px;
+	text-align: center;
+	margin: 20px;
+}
+
+.distribuie {
+	background-color: #339966;
+	color: white;
+	text-decoration: none;
+	vertical-align: middle;
+	padding: 7px 14px;
+	border-radius: 12px;
+	font-size: 12px;
+	font-weight: 600;
+	font-family: Arial;
+	margin-left: 10px;
+}
+
+.Download {
+	background-color: #3333ff;
+  	border: none;
+  	color: white;
+  	padding: 7px 14px;
+  	text-align: center;
+  	text-decoration: none;
+ 	display: inline-block;
+ 	font-weight: 600;
+ 	font-size: 12px;
+ 	font-family: Arial; 
+  	margin: 4px 2px;
+  	cursor: pointer;
+  	border-radius: 12px;
+}
+
+/*@media (max-width: 700px){
+	header {
+		height: 60px;
+	}
+	div header form button {
+  		padding: 3px 6px;
+ 		font-size: 5px;
+	}
+	div header form input[type=text] {
+  		padding: 3px 0px;
+  		font-size: 5px;
+  		text-align: center;
+	}
+	.sectiune_imagine {
+		background-color: #669999;
+		padding: 40px 20px;
+	}
+}*/
