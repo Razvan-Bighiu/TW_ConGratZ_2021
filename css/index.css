@@ -1,17 +1,53 @@
 * {box-sizing: border-box;}
 
-header{
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.header{
     display: inline-block;
     width: 100%;
     float: left;
+	padding: 15px 0px;
     background-color:#9a99ff;
 }
 
-header .logo{
+.header .logo{
     float: left;
-	width: 65px;
-	height: 100px;
 }
+
+.header .searchbar{
+    width: 45%;
+    height: 50px;
+    float: left;
+	padding: 20px 20px;
+}
+
+.searchbar .searchField{
+    width: 70%;
+    height: 50px;
+    padding: 15px;
+	margin-left: 150px;
+    border: 1px solid gainsboro;
+}
+
+.header .headerright{
+    float: right;
+	margin-top: 15px;
+}
+
+.header .headerright ul li{
+    display: inline-block;
+    padding: 10px 0;
+}
+
+.header .headerright ul li a{
+    text-decoration: none;
+    margin-left: 15px;
+    color: #333;
+}
+
 
 body{
     font-family: 'Roboto', sans-serif;  
@@ -19,14 +55,8 @@ body{
 	background-color:#cccc9a;	
 }
 
-img{
-    height:260px;
-	width:350px;
-}
-
 
 .btn {
-	float: left;
 	border: 2px solid black;
 	background-color: #66669a;
 	border-color: #66669a;
@@ -43,73 +73,38 @@ img{
 	color: black;
 }
 
-.btnr {
-	float: right;
-	border: 2px solid black;
-	background-color: #66669a;
-	border-color: #66669a;
-	border-radius: 5px;
-	color: #ccccca;
-	padding: 14px 28px;
-	font-size: 16px;
-	cursor: pointer;
-}
-.btnr:hover {
-	background-color:#9a99ff;
-	border-color: black;
-	color: black;
-}
 
 /* Responsiveness tiles*/
 .resp {
-	padding:20px;
+	display: inline;
+	padding: 20px;
 	float:left;
-	width:25%; /* The width is 20%, by default */
+	width:25%;
+	text-align: left;
+
 }	
-
-
-
-/* Top/Search bar */
-.topnav {
-	overflow: hidden;
-}
-
-.topnav a {
-	float: left;
-	display: block;
-	color: black;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 17px;
-} 
-
-.topnav .search-container {
-	float: center;
-}
-
-.topnav input[type=text] {
-	padding: 6px;
-	margin-top: 8px;
-	font-size: 17px;
-	border: none;
-	background-color: #67999a;
-}
-
-.topnav .search-container button {
-	float: center;
-	padding: 6px 10px;
-	margin-top: 8px;
-	margin-right: 16px;
-	background: #ddd;
-	font-size: 17px;
-	border: none;
-	cursor: pointer;
-    background-color: #67999a;
-}
-
-.topnav .search-container button:hover {
-	background: #ccc;
+.resp .img{
+    height:260px;
+	width:350px;
 }
 
 
+@media screen and (max-width:1400px) {
+  .resp {
+    width:33%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+@media screen and (max-width:1050px) {
+  .resp {
+    width:50%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .resp {
+    width:100%; /* The width is 100%, when the viewport is 800px or smaller */
+  }
+  .searchbar .searchField {
+		margin-left: 0px;
+  }
+}
