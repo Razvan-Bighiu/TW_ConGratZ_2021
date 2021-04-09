@@ -29,7 +29,14 @@
     height: 50px;
     padding: 15px;
 	margin-left: 150px;
-    border: 1px solid gainsboro;
+	margin-top: 10px;
+    border: 0px;
+	background-color:#67999a;
+}
+
+.searchField:focus {
+  background-color: #ddd;
+  outline: none;
 }
 
 .header .headerright{
@@ -76,12 +83,10 @@ body{
 
 /* Responsiveness tiles*/
 .resp {
-	display: inline;
 	padding: 20px;
 	float:left;
 	width:25%;
 	text-align: left;
-
 }	
 .resp .img{
     height:260px;
@@ -105,6 +110,6 @@ body{
     width:100%; /* The width is 100%, when the viewport is 800px or smaller */
   }
   .searchbar .searchField {
-		margin-left: 0px;
+	margin-left: 0px;
   }
 }
