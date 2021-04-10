@@ -1,2 +1,0 @@
-# ProiectTW
- CardViewer
