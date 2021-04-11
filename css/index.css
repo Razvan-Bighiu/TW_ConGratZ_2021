@@ -42,6 +42,10 @@ table {
   border-spacing: 0;
 }
 
+/*-----------------------------------------*/
+
+/* Inceput */
+
 * {box-sizing: border-box;}
 
 body{
@@ -165,7 +169,6 @@ div header input[type=text] {
 	color: black;
 }
 
-
 /* Responsiveness tiles*/
 .resp {
 	padding: 20px;
@@ -174,10 +177,36 @@ div header input[type=text] {
 	text-align: left;
 }	
 .resp .img{
-    height:260px;
+  height:260px;
 	width:350px;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: grey;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.Documentation {
+  background-color: #9494b8;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.7vw;
+  font-family: Arial; 
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
 
 @media screen and (max-width:1400px) {
   .resp {
@@ -261,6 +290,10 @@ div header input[type=text] {
 
   .descriere {
     font-size: 3vw;
+  }
+
+  .documentation {
+    font-size: 2vw;
   }
 }
 
