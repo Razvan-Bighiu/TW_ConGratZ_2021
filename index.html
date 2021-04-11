@@ -26,6 +26,17 @@
 		</div>
     <!-- Aici se termina header-ul-->
         <main> 
+			<div class="menu">
+				<button type="button" class="collection-filter__toolbar-controls__button">Sort</button>
+				<select id="sort-select" class="collection-filter__sort-select-filter" name="sortBy">
+					<option value="collections.relevancy:asc">Relevancy</option>
+					<option value="date:desc">Newest</option>
+					<option value="date:asc">Oldest</option>
+					<option value="name.raw:asc">A - Z</option>
+					<option value="reviews.likes:desc">Likes</option>
+				</select>
+			</div>
+
             <div class="resp">
 				<div>
 					<img src="images/card-mock.png" alt="Card" width="350" height="260">

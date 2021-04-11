@@ -208,6 +208,10 @@ div header input[type=text] {
   border-radius: 8px;
 }
 
+.menu {
+  padding: 20px;
+}
+
 @media screen and (max-width:1400px) {
   .resp {
     width:33%; /* The width is 100%, when the viewport is 800px or smaller */
