@@ -290,7 +290,7 @@ textarea[name="cDescription"]{
   text-decoration: none;
   display: inline-block;
   font-weight: 600;
-  font-size: 0.7vw;
+  font-size: 1vw;
   font-family: Arial; 
   margin: 4px 2px;
   cursor: pointer;
