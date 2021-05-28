@@ -1,152 +1,126 @@
 <?php
 	session_start();
+	include 'includes/galerie.inc.php';
+	// Connect to MySQL
+	$pdo = pdo_connect_mysql();
+	// MySQL query that selects all the images
+	$stmt = $pdo->query('SELECT * FROM images ORDER BY uploaded_date DESC');
+	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
-<html lang="ro"> 
-	<head>
-		<title>ConGratZ</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<link rel="icon" href="images/logo.png" type="image/x-icon">
-		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/index.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	</head>
-    <body>
-		<!-- De aici incepe header-ul -->
-		<div class="antet">
-			<header>
-				<a href="index.php">
-					<img class="logo" src="images/logo.png" alt="Logo">
-				</a>
-				<a href="newcard.php" class="NewCard">New Card</a>
-				<input class="Search" type="text" placeholder="Search...">
-				<?php
-					if(isset($_SESSION["username"])) {
-						echo "<a href='includes/logout.inc.php' class='SignUp'>Log out</a>";
-						echo "<a class='LogIn'>user: " . $_SESSION['username'] . "</a>"; 
-					} else {
-						echo "<a href='signup.php' class='SignUp'>Sign up</a>";
-						echo "<a href='login.php' class='LogIn'>Log in</a>";
-					}
-				?>
-			</header>
-		</div>
+    <html lang="ro"> 
+        <head>
+            <title>CardView</title>
+            <meta charset="utf-8" />
+            <link rel="icon" href="images/logo.png" type="image/x-icon">
+            <link rel="stylesheet" href="css/index.css">
+			<link rel="stylesheet" href="css/ImagePOPUp.css">
+        </head>
+        <body>
+        <!-- De aici incepe header-ul -->
+            <div class="antet">
+                <header>
+                    <a href="index.php">
+                        <img class="logo" src="images/logo.png" alt="Logo">
+                    </a>
+                    <a href="newcard.php" class="NewCard">New Card</a>
+                    <input class="Search" type="text" placeholder="Search...">
+                    <?php
+                        if(isset($_SESSION["username"])) {
+                            echo "<a href='includes/logout.inc.php' class='SignUp'>Log out</a>";
+                            echo "<a class='LogIn'>user: " . $_SESSION['username'] . "</a>"; 
+                        } else {
+                            echo "<a href='signup.php' class='SignUp'>Sign up</a>";
+                            echo "<a href='login.php' class='LogIn'>Log in</a>";
+                        }
+                    ?>
+                </header>
+            </div>
     	<!-- Aici se termina header-ul-->
-        <main> 
-			<div class="menu">
-				<button type="button" class="collection-filter__toolbar-controls__button">Sort</button>
-				<select id="sort-select" class="collection-filter__sort-select-filter" name="sortBy">
-					<option value="collections.relevancy:asc">Relevancy</option>
-					<option value="date:desc">Newest</option>
-					<option value="date:asc">Oldest</option>
-					<option value="name.raw:asc">A - Z</option>
-					<option value="reviews.likes:desc">Likes</option>
-				</select>
-			</div>
 
-            <div class="resp">
-				<div>
-					<a href="cardviewer.php">
-                    	<img src="images/card-mock.png" alt="Card" width="350" height="260">
-               		</a>
-				</div>
-				<div>
-					<h2>Card 1</h2>
-					<p>by User1</p>
-				</div>
-			</div>
-			  
-			<div class="resp">
-				<div>
-					<a href="cardviewer.php">
-                    	<img src="images/card-mock.png" alt="Card" width="350" height="260">
-               		</a>
-				</div>
-				<div>
-					<h2>Card 2</h2>
-					<p>by User2</p>
-				</div>
-			</div>
-			
-			<div class="resp">
-				<div>
-					<a href="cardviewer.php">
-                    	<img src="images/card-mock.png" alt="Card" width="350" height="260">
-               		</a>
-				</div>
-				<div>
-					<h2>Card 3</h2>
-					<p>by User3</p>
-				</div>
-			</div>
-			
-			<div class="resp">
-				<div>
-					<a href="cardviewer.php">
-                    	<img src="images/card-mock.png" alt="Card" width="350" height="260">
-               		</a>
-				</div>
-				<div>
-					<h2>Card 4</h2>
-					<p>by User4</p>
-				</div>
-			</div>
-			
-			<div class="resp">
-				<div>
-					<a href="cardviewer.php">
-                    	<img src="images/card-mock.png" alt="Card" width="350" height="260">
-               		</a>
-				</div>
-				<div>
-					<h2>Card 5</h2>
-					<p>by User5</p>
-				</div>
-			</div>
-			
-			<div class="resp">
-				<div>
-					<a href="cardviewer.php">
-                    	<img src="images/card-mock.png" alt="Card" width="350" height="260">
-               		</a>
-				</div>
-				<div>
-					<h2>Card 6</h2>
-					<p>by User6</p>
-				</div>
-			</div>
-			
-			<div class="resp">
-				<div>
-					<a href="cardviewer.php">
-                    	<img src="images/card-mock.png" alt="Card" width="350" height="260">
-               		</a>
-				</div>
-				<div>
-					<h2>Card 7</h2>
-					<p>by User7</p>
-				</div>
-			</div>
-			
-			<div class="resp">
-				<div>
-					<a href="cardviewer.php">
-                    	<img src="images/card-mock.png" alt="Card" width="350" height="260">
-               		</a>
-				</div>
-				<div>
-					<h2>Card 8</h2>
-					<p>by User8</p>
-				</div>
-			</div>
-        </main>
-    <div class="footer">
-		<div class="documentation">
-			<a href="documentation/Documentation.html" class="Documentation">Documentation</a>
+		<!-- De aici incepe galeria -->
+		<div class="menu">
+			<button type="button" class="collection-filter__toolbar-controls__button">Sort</button>
+			<select id="sort-select" class="collection-filter__sort-select-filter" name="sortBy">
+				<option value="collections.relevancy:asc">Relevancy</option>
+				<option value="date:desc">Newest</option>
+				<option value="date:asc">Oldest</option>
+				<option value="name.raw:asc">A - Z</option>
+				<option value="reviews.likes:desc">Likes</option>
+			</select>
 		</div>
-	</div>
+		<div class="content home">
+			<div class="images">
+				<?php foreach ($images as $image): ?>
+				<?php if (file_exists($image['path'])): ?>
+				<a href="#">
+					<img src="<?=$image['path']?>" alt="<?=$image['description']?>" data-id="<?=$image['id']?>" data-title="<?=$image['title']?>" data-creator="<?=$image['creator']?>" width="300" height="200">
+					<span><?=$image['description']?></span>
+				</a>
+				<?php endif; ?>
+				<?php endforeach; ?>
+			</div>
+		</div>
+		<div class="image-popup">
+			<script>
+				// Container we'll use to show an image
+				let image_popup = document.querySelector('.image-popup');
+				// Loop each image so we can add the on click event
+				document.querySelectorAll('.images a').forEach(img_link => {
+					img_link.onclick = click => {
+						click.preventDefault();
+						let img_meta = img_link.querySelector('img');
+						let img = new Image();
+						img.onload = () => {
+							// Create the pop out image
+							image_popup.innerHTML = `
+								<div class="con">
+									<div class="continut">
+										<div class="sectiuneImagine">
+											<div class="imagine">
+											<img src="${img.src}">
+											</div>
+											<div class="butoane">
+												<a class="distribuie" href="">Distribuie</a>
+												<button class="Download" type="button" name="Download">Download</button>
+											</div>
+										</div>
+										<div class="sectiuneText">
+											<div class="text">
+												<h3>${img_meta.dataset.title}</h3>
+											</div>
+											<div class="user">
+												<p>${img_meta.dataset.creator}</p>
+											</div>
+											<div class="descriere">
+												<p>${img_meta.alt}</p>
+											</div>
+										</div>
+										</div>
+									</div>
+								`;
+							image_popup.style.display = 'flex';
+						};
+						img.src = img_meta.src;
+					};
+				});
+				// Hide the image popup container if user clicks outside the image
+				image_popup.onclick = click => {
+					if (click.target.className == 'image-popup') {
+						image_popup.style.display = "none";
+					}
+				};
+			</script>
+		</div>
+		<!-- Aici se termina galeria -->
+
+		<!-- De aici incepe footer-ul -->
+		<div class="footer">
+			<div class="documentation">
+				<a href="documentation/Documentation.html" class="Documentation">Documentation</a>
+			</div>
+		</div>
+		<!-- Aici se termina footer-ul -->
     </body>
 </html>

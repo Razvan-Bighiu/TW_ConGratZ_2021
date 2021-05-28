@@ -15,7 +15,7 @@
     if ($check > 0) {
         header("Location: ../SignUp.php?info=utilizatorul_exista");
     } else {
-        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password_hashed')";
+        $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
         $result = mysqli_query($conectare, $sql);
         header ("Location: ../SignUp.php?info=inregistrare_efectuata");
     }

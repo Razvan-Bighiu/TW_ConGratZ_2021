@@ -34,7 +34,7 @@
 				<img src="images/congratz.jpg" alt="Felicitare">
 			</div>
 			<div class="butoane">
-				<a class="distribuie" href="https://www.freepik.com/premium-vector/congratulations-typography-handwritten-lettering-greeting-card-banner_3844375.htm">Distribuie</a>
+				<a class="distribuie" href="">Distribuie</a>
 				<button class="Download" type="button" name="Download">Download</button>
 			</div>
 		</div>

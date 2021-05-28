@@ -5,6 +5,7 @@
     $username = $_POST['username'];  
     $password = $_POST['password'];  
 
+    //to avoid sql-injections
     $username = stripcslashes($username);  
     $password = stripcslashes($password);  
     $username = mysqli_real_escape_string($conectare, $username);  
