@@ -15,6 +15,7 @@
             <meta charset="utf-8" />
             <link rel="icon" href="images/logo.png" type="image/x-icon">
             <link rel="stylesheet" href="css/index.css">
+			<link rel="stylesheet" href="css/CardView.css">
 			<link rel="stylesheet" href="css/ImagePOPUp.css">
         </head>
         <body>
@@ -88,13 +89,13 @@
 										</div>
 										<div class="sectiuneText">
 											<div class="text">
-												<h3>${img_meta.dataset.title}</h3>
+												Titlu: <h1>${img_meta.dataset.title}</h1>
 											</div>
 											<div class="user">
-												<p>${img_meta.dataset.creator}</p>
+												Creator: <p>${img_meta.dataset.creator}</p>
 											</div>
 											<div class="descriere">
-												<p>${img_meta.alt}</p>
+												Descriere: <p>${img_meta.alt}</p>
 											</div>
 										</div>
 										</div>

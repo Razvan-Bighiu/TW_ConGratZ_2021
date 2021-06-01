@@ -6,6 +6,7 @@
 <html lang=ro>
     <head>
         <link rel="stylesheet" href="css/Creator.css">
+        <link rel="stylesheet" href="css/index.css">
         <title>Create a card!</title>
     </head>
     <body>
