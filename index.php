@@ -26,7 +26,7 @@
                         <img class="logo" src="images/logo.png" alt="Logo">
                     </a>
                     <a href="newcard.php" class="NewCard">New Card</a>
-                    <input class="Search" type="text" placeholder="Search...">
+					<input class="Search" type="text" placeholder="Search...">
                     <?php
                         if(isset($_SESSION["username"])) {
                             echo "<a href='includes/logout.inc.php' class='SignUp'>Log out</a>";
@@ -42,14 +42,24 @@
 
 		<!-- De aici incepe galeria -->
 		<div class="menu">
-			<button type="button" class="collection-filter__toolbar-controls__button">Sort</button>
-			<select id="sort-select" class="collection-filter__sort-select-filter" name="sortBy">
-				<option value="collections.relevancy:asc">Relevancy</option>
-				<option value="date:desc">Newest</option>
-				<option value="date:asc">Oldest</option>
-				<option value="name.raw:asc">A - Z</option>
-				<option value="reviews.likes:desc">Likes</option>
-			</select>
+			<form method="get" action="includes/sortare.inc.php">
+				<select id="sort-select" name="sortBy">
+					<option value="desc">Desc</option>
+					<option value="asc">Asc</option>
+				</select>
+				<button type="submit">Sort</button>
+			</form>
+
+			<?php
+				if (isset($_GET['info']) && $_GET['info'] == 'desc') {
+					$stmt = $pdo->query('SELECT * FROM images ORDER BY uploaded_date DESC');
+					$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				}
+				else if (isset($_GET['info']) && $_GET['info'] == 'asc') {
+					$stmt = $pdo->query('SELECT * FROM images ORDER BY uploaded_date ASC');
+					$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+				}
+			?>
 		</div>
 		<div class="content home">
 			<div class="images">
