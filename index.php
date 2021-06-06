@@ -26,7 +26,16 @@
                         <img class="logo" src="images/logo.png" alt="Logo">
                     </a>
                     <a href="newcard.php" class="NewCard">New Card</a>
-					<input class="Search" type="text" placeholder="Search...">
+					<form class="search-form" method="get" style="display: inline-flex">
+						<input class="Search" name="search" type="text" placeholder="Search..." style="display: inline-table">
+					</form>
+					<?php
+						if (isset($_GET['search'])) {
+							$search = $_GET['search'];
+							$stmt = $pdo->query("SELECT * FROM images WHERE title LIKE '%$search%'");
+							$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+						}
+					?>
                     <?php
                         if(isset($_SESSION["username"])) {
                             echo "<a href='includes/logout.inc.php' class='SignUp'>Log out</a>";
@@ -44,8 +53,8 @@
 		<div class="menu">
 			<form method="get" action="includes/sortare.inc.php">
 				<select id="sort-select" name="sortBy">
-					<option value="desc">Desc</option>
-					<option value="asc">Asc</option>
+					<option value="desc">Newest</option>
+					<option value="asc">Oldest</option>
 				</select>
 				<button type="submit">Sort</button>
 			</form>
