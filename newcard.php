@@ -5,8 +5,9 @@
 <!DOCTYPE html>
 <html lang=ro>
     <head>
-        <link rel="stylesheet" href="css/Creator.css">
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/Creator.css">
+  
         <title>Create a card!</title>
     </head>
     <body>
@@ -37,17 +38,19 @@
             </div>
             
             <div class="picker">
-                <div class="pickerholder">
-                <img src="https://i.pinimg.com/originals/c2/4c/3b/c24c3b8b9736830196a12d19096b1c31.png" alt="frame 1">
-                </div>
+                <?php
+                    include 'includes/galerie.inc.php';
+                    $pdo = pdo_connect_mysql();
+    
+                    $stmt = $pdo->query("SELECT * FROM frames");
+                    $frames = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 
-                <div class="pickerholder">
-                <img src="https://5.imimg.com/data5/RR/GA/MY-9750351/photo-frame-500x500.jpg" alt="frame 2">
-                </div>
-                
-                <div class="pickerholder">
-                <img src="https://img.favpng.com/10/12/21/picture-frame-png-favpng-tSf1xnNvgyWtLXkHiLwM9dSdC.jpg" alt="frame 3">
-                </div>
+                    foreach($frames as $frame){
+                        echo "<div class = \"pickerholder\">";
+                        echo "<img src=".$frame['path'].">";
+                        echo "</div>";
+                    }
+                ?>
             </div>
             
             <div class="buttons">
@@ -59,10 +62,6 @@
                 <a class="creatorButton" id="pubcommunity">Publish to comunity</a>
             </div>
         </div>
-        <div class="footer">
-            <div class="documentation">
-                <a href="documentation/Documentation.html" class="Documentation">Documentation</a>
-            </div>
-        </div>
+
     </body>
 </html>
