@@ -7,8 +7,12 @@
     <head>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/Creator.css">
-  
         <title>Create a card!</title>
+        <?php
+        include 'includes/galerie.inc.php';
+                    $pdo = pdo_connect_mysql();
+        ?>
+        <script type="text/javascript" src="js/creator.js"></script>
     </head>
     <body>
         <div class="antet">
@@ -33,25 +37,27 @@
             
             <div class="mainFrame">
                 <div class="card">
-                    <img src="https://cdn.shopify.com/s/files/1/0222/9834/products/shutterstock_754419700_1024x1024.jpg?v=1588706826" alt="This is where the card goes">
+                    <!-- <img id="frame"/> -->
+                    <canvas id="canvas"></canvas>
+                    <!-- <img src="https://cdn.shopify.com/s/files/1/0222/9834/products/shutterstock_754419700_1024x1024.jpg?v=1588706826" alt="This is where the card goes"> -->
                 </div>
             </div>
             
             <div class="picker">
                 <?php
-                    include 'includes/galerie.inc.php';
-                    $pdo = pdo_connect_mysql();
-    
                     $stmt = $pdo->query("SELECT * FROM frames");
                     $frames = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 
                     foreach($frames as $frame){
+                        echo "<a onclick=\"changeFrame(".$frame['id'].")\">";
                         echo "<div class = \"pickerholder\">";
                         echo "<img src=".$frame['path'].">";
                         echo "</div>";
+                        echo "</a>";
                     }
                 ?>
             </div>
+
             
             <div class="buttons">
                 <a class="creatorButton"><img src="images/frame.png" alt="Frames"></a>
