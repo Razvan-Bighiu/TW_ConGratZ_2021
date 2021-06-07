@@ -81,9 +81,12 @@ table {
 .image-popup .con {
     display: flex;
     flex-flow: column;
-    background-color: #ffffff;
+    background-color: #9494b8;
     padding: 25px;
     border-radius: 5px;
+}
+.image-popup .con .continut {
+    background-color: #9494b8;
 }
 .image-popup .con h3 {
     margin: 0;
@@ -95,10 +98,31 @@ table {
     align-self: flex-end;
     width: 40px;
     text-decoration: none;
-    color: #FFFFFF;
     padding: 10px 12px;
     border-radius: 5px;
     margin-top: 10px;
+}
+.image-popup .con .continut .sectiuneImagine {
+    width: 485px;
+    height: 365px; 
+    background-color: #666666;
+}
+.image-popup .con .continut .sectiuneImagine .imagine img {
+    width: 480px;
+    height: 320px; 
+}
+.image-popup .con .continut .sectiuneText .text {
+    text-align: right;
+    color:#1f1f1f;
+}
+.image-popup .con .continut .sectiuneText .user {
+    text-align: left;
+    color:#1f1f1f;
+    font-size: small;
+}
+.image-popup .con .continut .sectiuneText .descriere {
+    text-align: left;
+    font-size: medium;
 }
 .image-popup .con .trash {
     background-color: #b73737;

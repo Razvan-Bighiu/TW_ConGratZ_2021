@@ -103,16 +103,18 @@
 											</div>
 											<div class="butoane">
 												<a class="distribuie" href="">Distribuie</a>
-												<button class="Download" type="button" name="Download">Download</button>
+												<a class="Download" type="button" name="Download" href="${img.src}" download="${img.src}">Download</a>
 											</div>
 										</div>
 										<div class="sectiuneText">
 											<div class="text">
-												Titlu: <h1>${img_meta.dataset.title}</h1>
+												<h1>${img_meta.dataset.title}</h1>
 											</div>
+											
 											<div class="user">
-												Creator: <p>${img_meta.dataset.creator}</p>
+												by: ${img_meta.dataset.creator}
 											</div>
+
 											<div class="descriere">
 												Descriere: <p>${img_meta.alt}</p>
 											</div>
