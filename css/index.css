@@ -49,8 +49,7 @@ table {
 * {box-sizing: border-box;}
 
 body{
-    font-family: 'Roboto', sans-serif;  
-    margin:0; 
+  margin:0; 
 	background-color:#cccc9a;	
 }
 
@@ -98,7 +97,7 @@ div header button {
   display: inline-bock;
   font-weight: 600;
   font-size: 16px;
-  font-family: Aria; 
+  font-family: Arial; 
     cursor: pointer;
     border-radius: 12px;
 }

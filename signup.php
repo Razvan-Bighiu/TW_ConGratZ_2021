@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ro">
   <head>
-    <meta charset="UTF-8">
     <title>SignUp</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/SignUp.css">
   </head>
   <body>

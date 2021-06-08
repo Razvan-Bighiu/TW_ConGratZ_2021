@@ -1,17 +1,17 @@
 <?php
 	session_start();
+    include 'includes/galerie.inc.php';
+    $pdo = pdo_connect_mysql();
 ?>
 
 <!DOCTYPE html>
 <html lang=ro>
     <head>
+        <title>Create a card!</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="images/logo.png" type="image/x-icon">
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/Creator.css">
-        <title>Create a card!</title>
-        <?php
-        include 'includes/galerie.inc.php';
-                    $pdo = pdo_connect_mysql();
-        ?>
         <script type="text/javascript" src="js/creator.js"></script>
     </head>
     <body>
