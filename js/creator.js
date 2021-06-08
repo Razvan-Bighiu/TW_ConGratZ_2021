@@ -2,9 +2,12 @@ var canvas, context;
 var star_img = new Image();
 var text = new Image();
 var isDraggable = false;
+var isTextDraggable = false;
 
 var currentX = 0;
 var currentY = 0;
+var currentTextX = 0;
+var currentTextY = 0;
 var background = new Image();
 var frame_img = new Image();
 
@@ -19,6 +22,8 @@ window.onload = function() {
     currentX = canvas.width / 2;
     currentY = canvas.height / 2;
 
+    currentTextX = canvas.width / 2;
+    currentTextY = canvas.height / 2;
     var imagesLoaded = 0;
 
 
@@ -76,12 +81,11 @@ function _MouseEvents() {
             isDraggable = true;
             //currentX = mouseX;
             //currentY = mouseY;
-        }
-        else if (mouseX >= (currentX - context.measureText(text).width / 2) &&
-            mouseX <= (currentX + context.measureText(text).width / 2) &&
-            mouseY >= (currentY - context.measureText(text).height / 2) &&
-            mouseY <= (currentY + context.measureText(text).height / 2)) {
-            isDraggable = true;
+        } else if (mouseX >= (currentTextX - context.measureText(text).width / 2) &&
+            mouseX <= (currentTextX + context.measureText(text).width / 2) &&
+            mouseY >= (currentTextY - 20) &&
+            mouseY <= (currentTextY + 20)) {
+            isTextDraggable = true;
             //currentX = mouseX;
             //currentY = mouseY;
         }
@@ -92,26 +96,33 @@ function _MouseEvents() {
             currentX = e.pageX - this.offsetLeft;
             currentY = e.pageY - this.offsetTop - 100;
         }
+        if (isTextDraggable) {
+            currentTextX = e.pageX - this.offsetLeft;
+            currentTextY = e.pageY - this.offsetTop - 100;
+        }
     };
     canvas.onmouseup = function(e) {
         isDraggable = false;
+        isTextDraggable = false;
     };
     canvas.onmouseout = function(e) {
         isDraggable = false;
+        isTextDraggable = false;
     };
 }
 
 function _DrawImage() {
     context.drawImage(star_img, currentX - (star_img.width / 2), currentY - (star_img.height / 2));
-    context.drawImage(frame_img, 0, 0, canvas.width, canvas.height);
     if (text)
-        context.fillText(text, currentX - (context.measureText(text).width / 2), currentY - 15);
+        context.fillText(text, currentTextX - (context.measureText(text).width / 2), currentTextY + 5);
+    context.drawImage(frame_img, 0, 0, canvas.width, canvas.height);
 
 }
 
 function AddText() {
     text = prompt("Please enter your text", "");
     context.font = "30px Calibri";
+    console.log(context.measureText(text).height);
 }
 
 function addFrame(frame_imgid) {
