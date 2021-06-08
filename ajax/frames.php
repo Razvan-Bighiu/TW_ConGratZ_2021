@@ -5,7 +5,7 @@
     $frames = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach($frames as $frame){
-        echo "<a onclick=\"changeFrame(".$frame['id'].")\">";
+        echo "<a onclick=\"addFrame(".$frame['id'].")\">";
         echo "<div class = \"pickerholder\">";
         echo "<img src=".$frame['path'].">";
         echo "</div>";

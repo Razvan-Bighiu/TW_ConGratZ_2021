@@ -5,7 +5,7 @@
     $backgrounds = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach($backgrounds as $background){
-        echo "<a onclick=\"changeFrame(".$background['id'].")\">";
+        echo "<a onclick=\"addBackground(".$background['id'].")\">";
         echo "<div class = \"pickerholder\">";
         echo "<img src=".$background['path'].">";
         echo "</div>";
