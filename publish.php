@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html lang=ro>
     <head>
+        <meta charset="UTF-8">
+        <link rel="icon" href="images/logo.png" type="image/x-icon">
         <link rel="stylesheet" href="css/Creator.css">
         <link rel="stylesheet" href="css/index.css">
         <title>Create a card!</title>

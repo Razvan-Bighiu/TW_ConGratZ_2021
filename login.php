@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ro">
   <head>
-    <meta charset="UTF-8">
     <title>Login</title>
+    <meta charset="UTF-8">
+    <link rel="icon" href="images/logo.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="css/LogIn.css">
   </head>
   <body>
