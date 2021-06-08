@@ -58,15 +58,7 @@
             </div>
 
             <script>
-                function AddText() {
-                    var canvas = document.getElementById("canvas");
-                    var text = prompt("Please enter your text", "");
-                    var ctx = canvas.getContext("2d");
-                    ctx.font = "30px Calibri";
-                    if (text != null) {
-  	                    ctx.strokeText(text,10,50);
-                    }
-                }
+                
 
                 function loadFrames() {
                     var xhttp = new XMLHttpRequest();
