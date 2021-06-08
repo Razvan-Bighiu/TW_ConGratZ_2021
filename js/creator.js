@@ -29,7 +29,7 @@ function _Go() {
     _MouseEvents();
 
     setInterval(function() {
-        _ResetCanvas();
+        //_ResetCanvas();
         _DrawImage();
     }, 1000 / 60);
 }

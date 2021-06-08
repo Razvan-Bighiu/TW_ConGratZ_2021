@@ -38,7 +38,7 @@
             <div class="mainFrame">
                 <div class="card">
                     <!-- <img id="frame"/> -->
-                    <canvas id="canvas"></canvas>
+                    <canvas class="canvas" id="canvas"></canvas>
                     <!-- <img src="https://cdn.shopify.com/s/files/1/0222/9834/products/shutterstock_754419700_1024x1024.jpg?v=1588706826" alt="This is where the card goes"> -->
                 </div>
             </div>
@@ -60,14 +60,25 @@
 
             
             <div class="buttons">
-                <a class="creatorButton"><img src="images/frame.png" alt="Frames"></a>
+                <a class="creatorButton"><img src="images/frame.png" alt="Frames" ></a>
                 <a class="creatorButton"><img src="images/image.png" alt="Photos"></a>
-                <a class="creatorButton"><img src="images/text.png" alt="Text"> </a>
+                <a class="creatorButton" onclick="AddText()"><img src="images/text.png" alt="Text"> </a>
                 <a class="creatorButton"><img src="images/background.png" alt="Backgrounds"></a>
                 <a href="publish.php" class="creatorButton" id="pubprivate">Publish as private</a>
                 <a class="creatorButton" id="pubcommunity">Publish to comunity</a>
             </div>
-        </div>
 
+            <script>
+                function AddText() {
+                    var canvas = document.getElementById("canvas");
+                    var text = prompt("Please enter your text", "");
+                    var ctx = canvas.getContext("2d");
+                    ctx.font = "30px Calibri";
+                    if (text != null) {
+  	                    ctx.strokeText(text,10,50);
+                    }
+                }
+            </script>   
+        </div>
     </body>
 </html>
