@@ -29,7 +29,7 @@ function _Go() {
     _MouseEvents();
 
     setInterval(function() {
-        //_ResetCanvas();
+        _ResetCanvas();
         _DrawImage();
     }, 1000 / 60);
 }
@@ -76,10 +76,10 @@ function _MouseEvents() {
 }
 
 function changeFrame($i) {
-    frame_img.src = "creator/frames/frame" + $i + ".png";
+    // frame_img.src = "creator/frames/frame" + $i + ".png";
 }
 
 function _DrawImage() {
     context.drawImage(star_img, currentX - (star_img.width / 2), currentY - (star_img.height / 2));
-    context.drawImage(frame_img.src, 0, 0, frame_img.width, frame_image.height);
+    // context.drawImage(frame_img.src, 0, 0, frame_img.width, frame_image.height);
 }
