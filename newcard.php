@@ -73,10 +73,11 @@
                     xhttp.onreadystatechange = function() {
                         if (this.readyState == 4 && this.status == 200) {
                             document.getElementById("picker").innerHTML = this.responseText;
-                            console.log(this.responseText);
+                            //console.log(this.responseText);
                         }
                     };
-                    xhttp.open("GET", "ajax/frames.txt", true);
+                    xhttp.open("GET", "ajax/frames.php", true);
+                    xhttp.responseType = "text";
                     xhttp.send();
                 }
 
@@ -87,7 +88,8 @@
                         document.getElementById("picker").innerHTML = this.responseText;
                         }
                     };
-                    xhttp.open("GET", "ajax/stickers.txt", true);
+                    xhttp.open("GET", "ajax/stickers.php", true);
+                    xhttp.responseType = "text";
                     xhttp.send();
                 }
 
@@ -98,7 +100,8 @@
                         document.getElementById("picker").innerHTML = this.responseText;
                         }
                     };
-                    xhttp.open("GET", "ajax/backgrounds.txt", true);
+                    xhttp.open("GET", "ajax/backgrounds.php", true);
+                    xhttp.responseType = "text";
                     xhttp.send();
                 }
             </script>   
