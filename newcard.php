@@ -43,27 +43,16 @@
                 </div>
             </div>
             
-            <div class="picker">
-                <?php
-                    $stmt = $pdo->query("SELECT * FROM frames");
-                    $frames = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                
-                    foreach($frames as $frame){
-                        echo "<a onclick=\"changeFrame(".$frame['id'].")\">";
-                        echo "<div class = \"pickerholder\">";
-                        echo "<img src=".$frame['path'].">";
-                        echo "</div>";
-                        echo "</a>";
-                    }
-                ?>
+            <div id="picker" class="picker">
+
             </div>
 
             
             <div class="buttons">
-                <a class="creatorButton"><img src="images/frame.png" alt="Frames" ></a>
-                <a class="creatorButton"><img src="images/image.png" alt="Photos"></a>
+                <a class="creatorButton" onclick="loadFrames()"><img src="images/frame.png" alt="Frames" ></a>
+                <a class="creatorButton" onclick="loadStickers()"><img src="images/image.png" alt="Photos"></a>
                 <a class="creatorButton" onclick="AddText()"><img src="images/text.png" alt="Text"> </a>
-                <a class="creatorButton"><img src="images/background.png" alt="Backgrounds"></a>
+                <a class="creatorButton" onclick="loadBackgrounds()"><img src="images/background.png" alt="Backgrounds"></a>
                 <a href="publish.php" class="creatorButton" id="pubprivate">Publish as private</a>
                 <a class="creatorButton" id="pubcommunity">Publish to comunity</a>
             </div>
@@ -77,6 +66,40 @@
                     if (text != null) {
   	                    ctx.strokeText(text,10,50);
                     }
+                }
+
+                function loadFrames() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("picker").innerHTML = this.responseText;
+                            console.log(this.responseText);
+                        }
+                    };
+                    xhttp.open("GET", "ajax/frames.txt", true);
+                    xhttp.send();
+                }
+
+                function loadStickers() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("picker").innerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open("GET", "ajax/stickers.txt", true);
+                    xhttp.send();
+                }
+
+                function loadBackgrounds() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("picker").innerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open("GET", "ajax/backgrounds.txt", true);
+                    xhttp.send();
                 }
             </script>   
         </div>

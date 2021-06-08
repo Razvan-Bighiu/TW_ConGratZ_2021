@@ -1,0 +1,12 @@
+<?php
+    $stmt = $pdo->query("SELECT * FROM backgrounds");
+    $backgrounds = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach($backgrounds as $background){
+        echo "<a onclick=\"changeFrame(".$background['id'].")\">";
+        echo "<div class = \"pickerholder\">";
+        echo "<img src=".$background['path'].">";
+        echo "</div>";
+        echo "</a>";
+    }
+?>
