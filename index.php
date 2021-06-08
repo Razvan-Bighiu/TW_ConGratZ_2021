@@ -102,7 +102,7 @@
 											<img src="${img.src}">
 											</div>
 											<div class="butoane">
-												<a class="distribuie" href="">Distribuie</a>
+												<a class="distribuie" type="button" name="CopyLink" href="${img.src}">Copy Link</a>
 												<a class="Download" type="button" name="Download" href="${img.src}" download="${img.src}">Download</a>
 											</div>
 										</div>
