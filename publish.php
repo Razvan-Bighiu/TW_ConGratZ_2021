@@ -37,13 +37,12 @@
                 </div>
             </div>
             <div class="cardData">
-                <form>
+                <form method="POST" action="publish.php" enctype="multipart/form-data">
                     <input type="text" id="cTitle" name="cTitle" placeholder="Title"><br>
-                    <!--<input type="text" id="cDescription" name="cDescription">-->
-                    <textarea name="cDescription" placeholder="Description"></textarea>
+                    <textarea type="text" id="cDescription" name="cDescription" placeholder="Description"></textarea>
+                    <input type="submit" name="upload">
                 </form>
                 
-            <a class="creatorButton">Publish</a>
             </div>
         </div>
         <div class="footer">
@@ -55,5 +54,51 @@
         <script>
             document.getElementById("cardImage").src=sessionStorage.getItem('card');
         </script>
+
+            <?php
+            $msg = "";
+  
+            include '../includes/galerie.inc.php';
+            $pdo = pdo_connect_mysql();
+            $id = $pdo->lastInsertId();
+            $id++;
+            $username = $_SESSION['username'];
+            // If upload button is clicked ...
+            if (isset($_POST['upload'])) {
+            
+                // $filename = $_FILES["uploadfile"]["name"];
+                // $tempname = $_FILES["uploadfile"]["tmp_name"];   
+                $folder = "images/".$id.".jpg";
+                $title = $_POST["cTitle"];
+                $description = $_POST["cDescription"];
+                $date = date("YYYY-MM-DD HH:MM:DD");
+
+                    // Get all the submitted data from the form
+                    $stmt = $pdo->prepare(
+                        "INSERT INTO images('title','description','path','date','creator') VALUES 
+                    (NULL,?,?,CURRENT_TIMESTAMP,?)");
+                    
+                    //$stmt->bindValue("id",$id,PDO::PARAM_INT);
+                    $stmt->bindValue("title",$title,PDO::PARAM_STR);
+                    $stmt->bindValue("description",$description,PDO::PARAM_STR);
+                    $stmt->bindValue("path",$folder,PDO::PARAM_STR);
+                    //$stmt->bindValue("date",$date,PDO::PARAM_STR);
+                    $stmt->bindValue("creator",$username,PDO::PARAM_STR);
+                
+
+                    // Execute query
+                    $stmt->execute();
+                    
+                    // Now let's move the uploaded image into the folder: images
+                    if (move_uploaded_file($id.".jpg", $folder))  {
+                        $msg = "Image uploaded successfully";
+                    }else{
+                        $msg = "Failed to upload image";
+                }
+            }
+            ?>
+
+
+
     </body>
 </html>
