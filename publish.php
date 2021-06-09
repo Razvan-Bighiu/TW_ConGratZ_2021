@@ -33,7 +33,7 @@
         <div class="center">
             <div class="mainFrame">
                 <div class="card">
-                <img src="https://cdn.shopify.com/s/files/1/0222/9834/products/shutterstock_754419700_1024x1024.jpg?v=1588706826">
+                <img id="cardImage" src="">
                 </div>
             </div>
             <div class="cardData">
@@ -51,5 +51,9 @@
                 <a href="documentation/Documentation.html" class="Documentation">Documentation</a>
             </div>
         </div>
+                
+        <script>
+            document.getElementById("cardImage").src=sessionStorage.getItem('card');
+        </script>
     </body>
 </html>

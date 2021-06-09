@@ -1,4 +1,4 @@
-var canvas, context;
+var canvas, context, hiddenCanvas, hiddenContext;
 var star_img = new Image();
 var text = new Image();
 var isDraggable = false;
@@ -10,6 +10,10 @@ var currentTextX = 0;
 var currentTextY = 0;
 var background = new Image();
 var frame_img = new Image();
+
+var intermediary = new Image();
+
+addEventListener('keydown', saveCanvas);
 
 window.onload = function() {
     canvas = document.getElementById("canvas");
@@ -62,6 +66,8 @@ function _Go() {
 
 function _ResetCanvas() {
     context.drawImage(background, 0, 0, canvas.width, canvas.height);
+    context.drawImage(intermediary, 0, 0);
+
 }
 
 function _MouseEvents() {
@@ -142,4 +148,34 @@ function addBackground(backgroundid) {
     background.src = "./creator/backgrounds/background" + backgroundid + ".png";
     //background.src = "./creator/backgrounds/background2.png";
     console.log(background.src);
+}
+
+function saveCanvas() {
+    hiddenCanvas = document.getElementById("hiddenCanvas");
+    hiddenContext = hiddenCanvas.getContext("2d");
+    hiddenContext.font = "30px Calibri";
+
+    //    hiddenContext.drawImage(background, 0, 0);
+    hiddenContext.drawImage(star_img, currentX - (star_img.width / 2), currentY - (star_img.height / 2));
+    if (text)
+        hiddenContext.fillText(text, currentTextX - (hiddenContext.measureText(text).width / 2), currentTextY + 5);
+
+    intermediary.src = hiddenCanvas.toDataURL();
+
+    star_img.src = "";
+    text = "";
+    //console.log(background.src);
+    //background.src.select();
+    //document.execCommand("copy");
+}
+
+function publish() {
+    // var data = new FormData();
+    // data.append('card', canvas.toDataURL());
+
+    // var xmlhttp = new XMLHttpRequest();
+    // xmlhttp.open("POST", "/publish.php");
+    // xmlhttp.send(data);
+
+    sessionStorage.setItem("card", canvas.toDataURL());
 }
