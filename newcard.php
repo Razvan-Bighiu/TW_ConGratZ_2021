@@ -39,6 +39,7 @@
                 <div class="card">
                     <!-- <img id="frame"/> -->
                     <canvas class="canvas" id="canvas"></canvas>
+                    <canvas id="hiddenCanvas" style="display:none" width="500" height="500"></canvas>
                     <!-- <img src="https://cdn.shopify.com/s/files/1/0222/9834/products/shutterstock_754419700_1024x1024.jpg?v=1588706826" alt="This is where the card goes"> -->
                 </div>
             </div>
@@ -53,7 +54,7 @@
                 <a class="creatorButton" onclick="loadStickers()"><img src="images/image.png" alt="Photos"></a>
                 <a class="creatorButton" onclick="AddText()"><img src="images/text.png" alt="Text"> </a>
                 <a class="creatorButton" onclick="loadBackgrounds()"><img src="images/background.png" alt="Backgrounds"></a>
-                <a href="publish.php" class="creatorButton" id="pubprivate">Publish as private</a>
+                <a href='publish.php' class="creatorButton" id="pubprivate" onclick="publish()">Publish!</a>
                 <a class="creatorButton" id="pubcommunity">Publish to comunity</a>
             </div>
 
