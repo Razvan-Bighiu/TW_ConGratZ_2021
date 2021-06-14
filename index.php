@@ -1,9 +1,9 @@
 <?php
 	session_start();
 	include 'includes/galerie.inc.php';
-	// Connect to MySQL
+	// Conectare la baza de date cu galeria
 	$pdo = pdo_connect_mysql();
-	// MySQL query that selects all the images
+	// Afiseaza imaginile in ordine descrescatoare
 	$stmt = $pdo->query('SELECT * FROM images ORDER BY uploaded_date DESC');
 	$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -14,9 +14,12 @@
             <title>CardView</title>
             <meta charset="utf-8" />
             <link rel="icon" href="images/logo.png" type="image/x-icon">
+			<link rel="stylesheet" href="css/reset.css">
+			<link rel="stylesheet" href="css/header.css">
             <link rel="stylesheet" href="css/index.css">
 			<link rel="stylesheet" href="css/CardView.css">
 			<link rel="stylesheet" href="css/ImagePOPUp.css">
+			<link rel="stylesheet" href="css/footer.css">
         </head>
         <body>
         <!-- De aici incepe header-ul -->
@@ -25,7 +28,13 @@
                     <a href="index.php">
                         <img class="logo" src="images/logo.png" alt="Logo">
                     </a>
-                    <a href="newcard.php" class="NewCard">New Card</a>
+					<div class="dropdown">
+						<button class="dropbtn">New Card</button>
+						<div class="dropdown-content">
+							<a href="newcard.php">Greeting Card</a>
+							<a href="business.php">Business Card</a>
+						</div>
+					</div>
 					<form class="search-form" method="get" style="display: inline-flex">
 						<input class="Search" name="search" type="text" placeholder="Search..." style="display: inline-table">
 					</form>

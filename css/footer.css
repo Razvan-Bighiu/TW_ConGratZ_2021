@@ -1,0 +1,36 @@
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+  
+.Documentation {
+    background-color: #9494b8;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 1vw;
+    font-family: Arial; 
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .descriere {
+      font-size: 3vw;
+    }
+  
+    .Documentation {
+      font-size: 2vw;
+    }
+  }

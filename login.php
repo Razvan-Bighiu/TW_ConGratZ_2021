@@ -4,6 +4,8 @@
     <title>Login</title>
     <meta charset="UTF-8">
     <link rel="icon" href="images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
     <link rel="stylesheet" type="text/css" href="css/LogIn.css">
   </head>
   <body>
@@ -12,7 +14,7 @@
         <a href="index.php">
           <img class="logo" src="images/logo.png" alt="Logo">
         </a>
-        <a class="signup" href="signup.php">SignUp</a>
+        <a class="SignUp" href="signup.php">SignUp</a>
       </header>
     </div>
     <div class="continut">

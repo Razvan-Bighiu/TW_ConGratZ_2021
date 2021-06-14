@@ -1,5 +1,7 @@
 <?php
 	session_start();
+    include 'includes/galerie.inc.php';
+    $pdo = pdo_connect_mysql();
 ?>
 
 <!DOCTYPE html>
@@ -7,8 +9,11 @@
     <head>
         <meta charset="UTF-8">
         <link rel="icon" href="images/logo.png" type="image/x-icon">
-        <link rel="stylesheet" href="css/Creator.css">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/Creator.css">
+        <link rel="stylesheet" href="css/footer.css">
         <title>Create a card!</title>
     </head>
     <body>
@@ -17,8 +22,13 @@
                 <a href="index.php">
                     <img class="logo" src="images/logo.png" alt="Logo">
                 </a>
-                <a href="newcard.php" class="NewCard">New Card</a>
-                <input class="Search" type="text" placeholder="Search...">
+                <div class="dropdown">
+                    <button class="dropbtn">New Card</button>
+                    <div class="dropdown-content">
+                        <a href="newcard.php">Greeting Card</a>
+                        <a href="business.php">Business Card</a>
+                    </div>
+                </div>
                 <?php
                 if(isset($_SESSION["username"])) {
                     echo "<a href='includes/logout.inc.php' class='SignUp'>Log out</a>";
@@ -37,7 +47,7 @@
                 </div>
             </div>
             <div class="cardData">
-                <form method="POST" action="publish.php" enctype="multipart/form-data">
+                <form class="form-publish" method="POST" action="publish.php" enctype="multipart/form-data">
                     <input type="text" id="cTitle" name="cTitle" placeholder="Title"><br>
                     <textarea type="text" id="cDescription" name="cDescription" placeholder="Description"></textarea>
                     <input type="submit" name="upload">
@@ -97,8 +107,5 @@
                 }
             }
             ?>
-
-
-
     </body>
 </html>
