@@ -43,7 +43,8 @@
         <div class="center">
             <div class="mainFrame">
                 <div class="card">
-                <img id="cardImage" src="">
+                <img id="cardImagine" src="">
+                <div id="cardImage"></div>
                 </div>
             </div>
             <div class="cardData">
@@ -72,8 +73,11 @@
         </div>
                 
         <script>
-            document.getElementById("cardImage").src=sessionStorage.getItem('card');
-            document.getElementById("card").setAttribute("value", sessionStorage.getItem('card'));
+            //document.getElementById("cardImage").src=sessionStorage.getItem('card');
+            document.getElementById("card").setAttribute("value", sessionStorage.getItem('text-html'));
+            document.getElementById("cardImage").innerHTML=sessionStorage.getItem('text-html');
+            
+            console.log(sessionStorage.getItem('text-html'));
         </script>
     </body>
 </html>

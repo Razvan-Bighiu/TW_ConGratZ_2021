@@ -178,10 +178,12 @@ function publish() {
     // xmlhttp.send(data);
 
     sessionStorage.setItem("card", canvas.toDataURL());
+    download();
 }
 
 function download() {
     var a;
-    a = "data:text/html," + document.getElementById("card").innerHTML;
+    a = /*"data:text/html," +*/ document.getElementById("card").innerHTML;
     sessionStorage.setItem("text-html", a);
+    console.log(sessionStorage.getItem('text-html'));
 }
