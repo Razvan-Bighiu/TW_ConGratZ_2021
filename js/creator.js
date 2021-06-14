@@ -179,3 +179,9 @@ function publish() {
 
     sessionStorage.setItem("card", canvas.toDataURL());
 }
+
+function download() {
+    var a;
+    a = "data:text/html," + document.getElementById("card").innerHTML;
+    sessionStorage.setItem("text-html", a);
+}

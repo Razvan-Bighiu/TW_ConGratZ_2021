@@ -55,7 +55,6 @@
             <div id="picker" class="picker">
 
             </div>
-
             
             <div class="buttons">
                 <a class="creatorButton" onclick="loadFrames()"><img src="images/frame.png" alt="Frames" ></a>
@@ -67,8 +66,6 @@
             </div>
 
             <script>
-                
-
                 function loadFrames() {
                     var xhttp = new XMLHttpRequest();
                     xhttp.onreadystatechange = function() {
