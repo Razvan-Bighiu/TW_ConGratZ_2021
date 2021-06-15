@@ -46,9 +46,9 @@
             <div class="mainFrame">
                 <div id="card" class="card">
                     <!-- <img id="frame"/> -->
-                    <canvas class="canvas" id="canvas"></canvas>
-                    <canvas id="hiddenCanvas" style="display:none" width="500" height="500"></canvas>
-                    <img src="https://cdn.shopify.com/s/files/1/0222/9834/products/shutterstock_754419700_1024x1024.jpg?v=1588706826" alt="This is where the card goes"/>
+                    <!-- <canvas class="canvas" id="canvas"></canvas> -->
+                    <!-- <canvas id="hiddenCanvas" style="display:none" width="500" height="500"></canvas> -->
+                    <!-- <img src="https://cdn.shopify.com/s/files/1/0222/9834/products/shutterstock_754419700_1024x1024.jpg?v=1588706826" alt="This is where the card goes"/> -->
                 </div>
             </div>
             

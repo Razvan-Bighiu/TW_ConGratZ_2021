@@ -16,20 +16,22 @@
     width: 59%;
     display: flex;
     justify-content: center;
-    align-self: flex-start;
+    align-self: stretch;
     padding: 20px 0 20px 0;
     overflow: auto;
     position: relative;
 }
 
 .card {
+    width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
 }
 
-.card img {
-    width: 90%;
-    display: inline-block;
+.card>* {
+    position: absolute;
+    align-self: center;
 }
 
 #canvas {
@@ -114,6 +116,7 @@
     vertical-align: middle;
 }
 
+
 /* Publish page */
 
 .cardData {
@@ -163,7 +166,6 @@ textarea[name="cDescription"] {
     .cardData {
         width: 100%;
     }
-    
     .continut {
         display: flex;
         justify-content: center;
