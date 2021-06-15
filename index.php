@@ -108,7 +108,9 @@
 									<div class="continut">
 										<div class="sectiuneImagine">
 											<div class="imagine">
-											<img src="${img.src}">
+											<a href="./cardviewer.php?id=${img_meta.dataset.id}">
+												<img src="${img.src}">
+											</a>
 											</div>
 											<div class="butoane">
 												<a class="distribuie" type="button" name="CopyLink" href="${img.src}">Copy Link</a>
