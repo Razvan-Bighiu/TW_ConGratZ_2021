@@ -1,4 +1,87 @@
-var canvas, context, hiddenCanvas, hiddenContext;
+var background;
+var frame_img;
+var draggableElements;
+
+function AddText() {
+    text = prompt("Please enter your text", "");
+    context.font = "30px Calibri";
+    console.log(context.measureText(text).height);
+}
+
+function addFrame(frame_imgid) {
+    if (typeof frame_img == 'undefined') {
+        frame_img = document.createElement("img");
+    }
+    frame_img.src = "./creator/frames/frame" + frame_imgid + ".png";
+    document.getElementById("card").append(frame_img);
+}
+
+function addSticker(sticker) {
+    var sticker_img = document.createElement("img");
+    sticker_img.classList.add("draggable");
+    sticker_img.src = "./creator/stickers/sticker" + sticker + ".png";
+    if (typeof frame_img == 'undefined') {
+        document.getElementById("card").appendChild(sticker_img);
+    } else {
+        document.getElementById("card").insertBefore(sticker_img, frame_img);
+    }
+}
+
+function addBackground(backgroundid) {
+    if (typeof background == 'undefined') {
+        background = document.createElement("img");
+    }
+    background.src = "./creator/backgrounds/background" + backgroundid + ".png";
+    document.getElementById("card").prepend(background);
+}
+
+
+draggableElements = document.getElementsByClassName("draggable");
+
+for (var i = 0; i < draggableElements.length; i++) {
+    dragElement(draggableElements[i]);
+    draggableElements[i].style.cursor = "pointer";
+}
+
+function dragElement(elmnt) {
+    var pos1 = 0,
+        pos2 = 0,
+        pos3 = 0,
+        pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+        elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+        e = e || window.event;
+        pos3 = parseInt(e.clientX);
+        pos4 = parseInt(e.clientY);
+        document.onmouseup = closeDragElement;
+        document.onmousemove = elementDrag;
+        return false;
+    }
+
+    function elementDrag(e) {
+        e = e || window.event;
+        pos1 = pos3 - parseInt(e.clientX);
+        pos2 = pos4 - parseInt(e.clientY);
+        pos3 = parseInt(e.clientX);
+        pos4 = parseInt(e.clientY);
+        elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+        console.log(elmnt.offsetTop)
+        elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+}
+
+
+/*var canvas, context, hiddenCanvas, hiddenContext;
 var star_img = new Image();
 var text = new Image();
 var isDraggable = false;
@@ -183,7 +266,8 @@ function publish() {
 
 function download() {
     var a;
-    a = /*"data:text/html," +*/ document.getElementById("card").innerHTML;
-    sessionStorage.setItem("text-html", a);
-    console.log(sessionStorage.getItem('text-html'));
-}
+    a = 
+document.getElementById("card").innerHTML;
+sessionStorage.setItem("text-html", a);
+console.log(sessionStorage.getItem('text-html'));
+} */
