@@ -33,9 +33,11 @@
                 if(isset($_SESSION["username"])) {
                     echo "<a href='includes/logout.inc.php' class='SignUp'>Log out</a>";
                     echo "<a class='LogIn'>user: " . $_SESSION['username'] . "</a>"; 
+                    $curr_username=$_SESSION['username'];
                 } else {
                     echo "<a href='signup.php' class='SignUp'>Sign up</a>";
                     echo "<a href='login.php' class='LogIn'>Log in</a>";
+                    $curr_username="Anonymous";
                 }
 				?>
             </header>
@@ -51,11 +53,10 @@
                 <form action="insert.php" method="POST">
                     Title: <input type="text" name="title" placeholder="Scrie un titlu" Required>
                     <br/>
-                    Description: <input type="text" name="description" placeholder="Scrie o descriere" Required>                   
+                    Description: <input type="text" name="description" placeholder="Scrie o descriere" Required>
+                    <input type="hidden" name="creator" value=<?php echo $curr_username?> >
                     <br/>
-                    Creator: <input type="text" name="creator" placeholder="Scrie-ti alias-ul/numele" Required>
-                    <br/>
-                    <input type='file' name='file'/>
+                    <input id="thumbnail" type='hidden' name='file'/>
                     <br/>
                     <input type='submit' value='Upload Image' name='but_upload'>
                     <br/>
@@ -80,6 +81,7 @@
             //document.getElementById("cardImage").src=sessionStorage.getItem('card');
             document.getElementById("card").setAttribute("value", sessionStorage.getItem('text-html'));
             document.getElementById("cardImage").innerHTML=sessionStorage.getItem('text-html');
+            document.getElementById("thumbnail").setAttribute("value", sessionStorage.getItem('card'));
             
             console.log(sessionStorage.getItem('text-html'));
         </script>

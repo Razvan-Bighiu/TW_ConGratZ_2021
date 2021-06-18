@@ -18,7 +18,7 @@ if(isset($_POST['submit']))
     }
     else
     {
-        echo "Records added successfully.";
+        header("Location: index.php");
     }
 }
 ?>
