@@ -55,6 +55,10 @@
                     <br/>
                     Creator: <input type="text" name="creator" placeholder="Scrie-ti alias-ul/numele" Required>
                     <br/>
+                    <input type='file' name='file'/>
+                    <br/>
+                    <input type='submit' value='Upload Image' name='but_upload'>
+                    <br/>
                     <input type="hidden" name="card" id="card">
                     <input type="submit" name="submit" value="Submit">
                 </form>
