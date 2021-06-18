@@ -42,9 +42,9 @@
         </div>
         <div class="center">
             <div class="mainFrame">
-                <div class="card">
-                <img id="cardImagine" src="">
-                <div id="cardImage"></div>
+                <div id="cardImage" class="card">
+                <!-- <img id="cardImagine" src="">
+                <div id="cardImage" class="card"></div> -->
                 </div>
             </div>
             <div class="cardData">

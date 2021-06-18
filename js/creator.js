@@ -2,6 +2,8 @@ var background;
 var frame_img;
 var draggableElements;
 
+addEventListener(onkeypress, moveFrameDown);
+
 function AddText() {
     text = prompt("Please enter your text", "");
     context.font = "30px Calibri";
@@ -14,6 +16,7 @@ function addFrame(frame_imgid) {
     }
     frame_img.src = "./creator/frames/frame" + frame_imgid + ".png";
     document.getElementById("card").append(frame_img);
+    loadDrag();
 }
 
 function addSticker(sticker) {
@@ -25,6 +28,7 @@ function addSticker(sticker) {
     } else {
         document.getElementById("card").insertBefore(sticker_img, frame_img);
     }
+    loadDrag();
 }
 
 function addBackground(backgroundid) {
@@ -33,26 +37,25 @@ function addBackground(backgroundid) {
     }
     background.src = "./creator/backgrounds/background" + backgroundid + ".png";
     document.getElementById("card").prepend(background);
+    loadDrag();
 }
 
+function loadDrag() {
+    draggableElements = document.getElementsByClassName("draggable");
 
-draggableElements = document.getElementsByClassName("draggable");
-
-for (var i = 0; i < draggableElements.length; i++) {
-    dragElement(draggableElements[i]);
-    draggableElements[i].style.cursor = "pointer";
-}
+    for (var i = 0; i < draggableElements.length; i++) {
+        dragElement(draggableElements[i]);
+        draggableElements[i].style.cursor = "pointer";
+    }
+};
 
 function dragElement(elmnt) {
     var pos1 = 0,
         pos2 = 0,
         pos3 = 0,
         pos4 = 0;
-    if (document.getElementById(elmnt.id + "header")) {
-        document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-    } else {
-        elmnt.onmousedown = dragMouseDown;
-    }
+
+    elmnt.onmousedown = dragMouseDown;
 
     function dragMouseDown(e) {
         e = e || window.event;
@@ -77,9 +80,48 @@ function dragElement(elmnt) {
     function closeDragElement() {
         document.onmouseup = null;
         document.onmousemove = null;
+        moveFrameUp();
     }
 }
 
+function moveFrameDown() {
+    if (typeof frame_img != 'undefined') {
+        var temp_frame = frame_img;
+        frame_img.remove();
+        background.parentNode.insertBefore(temp_frame, background.nextSibling);
+        frame_img = temp_frame;
+    }
+    console.log("moved down");
+}
+
+function moveFrameUp() {
+    if (typeof frame_img != 'undefined') {
+        var temp_frame = frame_img;
+        frame_img.remove();
+        document.getElementById("card").append(frame_img);
+        frame_img = temp_frame;
+    }
+    console.log("moved up");
+}
+
+function publish() {
+    // var data = new FormData();
+    // data.append('card', canvas.toDataURL());
+
+    // var xmlhttp = new XMLHttpRequest();
+    // xmlhttp.open("POST", "/publish.php");
+    // xmlhttp.send(data);
+
+    //    sessionStorage.setItem("card", canvas.toDataURL());
+    download();
+}
+
+function download() {
+    var a;
+    a = document.getElementById("card").innerHTML;
+    sessionStorage.setItem("text-html", a);
+    console.log(sessionStorage.getItem('text-html'));
+}
 
 /*var canvas, context, hiddenCanvas, hiddenContext;
 var star_img = new Image();
