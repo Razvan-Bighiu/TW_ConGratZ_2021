@@ -7,15 +7,17 @@
 
 <!DOCTYPE html>
     <html lang="ro"> 
-        <head>
-            <title>CardView</title>
-            <meta charset="utf-8" />
-            <link rel="icon" href="images/logo.png" type="image/x-icon">
-			<link rel="stylesheet" href="css/reset.css">
-			<link rel="stylesheet" href="css/header.css">
-            <link rel="stylesheet" href="css/index.css">
-			<link rel="stylesheet" href="css/footer.css">
-        </head>
+    <head>
+        <title>Create a business card!</title>
+        <meta charset="UTF-8">
+        <link rel="icon" href="images/logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/Creator.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <script type="text/javascript" src="js/creator.js"></script>
+    </head>
         <body>
         <!-- De aici incepe header-ul -->
             <div class="antet">
@@ -42,13 +44,81 @@
                 </header>
             </div>
     	<!-- Aici se termina header-ul-->
+        <div class="center">
+            
+            <div class="mainFrame">
+                <div id="card" class="card" style="width:500px;height:500px;">
+                     <!-- <img id="frame"/> -->
+                    <!-- <canvas class="canvas" id="canvas"></canvas> -->
+                    <canvas id="hiddenCanvas" style="display:none" width="500" height="500"></canvas>
+                    <!-- <img src="https://cdn.shopify.com/s/files/1/0222/9834/products/shutterstock_754419700_1024x1024.jpg?v=1588706826" alt="This is where the card goes"/> -->
+                </div>
+            </div>
+            
+            <div id="picker" class="picker">
 
+            </div>
+            
+            <div class="buttons">
+                <a class="creatorButton" onclick="loadFrames()"><img src="images/frame.png" alt="Frames" ></a>
+                <a class="creatorButton" onclick="loadStickers()"><img src="images/image.png" alt="Photos"></a>
+                <a class="creatorButton" onclick="AddText()"><img src="images/text.png" alt="Text"> </a>
+                <a class="creatorButton" onclick="loadBusinessBckg()"><img src="images/background.png" alt="Backgrounds"></a>
+                <a href='publish.php' class="creatorButton" id="pubprivate" onclick="publish()">Publish!</a>
+                <a href='#' class="creatorButton" id="pubcommunity" onclick="saveCanvas()">Publish to comunity</a>
+            </div>
+
+            <script>
+                function loadFrames() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("picker").innerHTML = this.responseText;
+                            //console.log(this.responseText);
+                        }
+                    };
+                    xhttp.open("GET", "ajax/frames.php", true);
+                    xhttp.responseType = "text";
+                    xhttp.send();
+                }
+
+                function loadStickers() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("picker").innerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open("GET", "ajax/stickers.php", true);
+                    xhttp.responseType = "text";
+                    xhttp.send();
+                }
+
+                function loadBackgrounds() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("picker").innerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open("GET", "ajax/backgrounds.php", true);
+                    xhttp.responseType = "text";
+                    xhttp.send();
+                }
+                function loadBusinessBckg() {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("picker").innerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open("GET", "ajax/businessbackground.php", true);
+                    xhttp.responseType = "text";
+                    xhttp.send();
+                }
+            </script>   
+        </div>
 		<!-- De aici incepe footer-ul -->
-		<div class="footer">
-			<div class="documentation">
-				<a href="documentation/Documentation.html" class="Documentation">Documentation</a>
-			</div>
-		</div>
 		<!-- Aici se termina footer-ul -->
     </body>
 </html>
