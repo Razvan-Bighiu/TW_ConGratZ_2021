@@ -56,12 +56,12 @@
                 </div>
             </div>
             
-            <div class="backgrounds">
+            <div class="picker" id="picker">
                 
             </div>
 
             <div class="writer">
-                <form method="POST">
+                <form>
                     <input type="text" name="name" placeholder="Name" Required>
                     <br/>
                     <input type="email" name="email" placeholder="Email" Required>
@@ -82,5 +82,20 @@
             
             </div>
         <!-- Main Frame-->
+        <script>
+            window.onload = (event) => { loadBusinessBkg() };
+            function loadBusinessBkg() {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("picker").innerHTML = this.responseText;
+                        // console.log(this.responseText);
+                    }
+                };
+                xhttp.open("GET", "ajax/businessbackground.php", true);
+                xhttp.responseType = "text";
+                xhttp.send();
+            }
+        </script>   
     </body>
 </html>

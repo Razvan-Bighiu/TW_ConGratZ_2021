@@ -56,6 +56,15 @@ function addSticker(sticker) {
     loadDrag();
 }
 
+function addBusinessBackground(backgroundid) {
+    if (typeof background == 'undefined') {
+        background = document.createElement("img");
+    }
+    background.src = "./creator/businessbackground/background" + backgroundid + ".png";
+    document.getElementById("card").prepend(background);
+    loadDrag();
+}
+
 function addBackground(backgroundid) {
     if (typeof background == 'undefined') {
         background = document.createElement("img");
