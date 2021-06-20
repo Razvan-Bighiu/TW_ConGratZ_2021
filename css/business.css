@@ -1,0 +1,181 @@
+/*-----------------------------------------*/
+
+
+/* Inceput */
+
+.center {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+.mainFrame {
+    background-color: #669999;
+    width: 59%;
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+    padding: 20px 0 20px 0;
+    overflow: auto;
+    position: relative;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.card>* {
+    position: absolute;
+    align-self: center;
+}
+
+#canvas {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+#frame {
+    position: absolute;
+    display: block;
+    height: 92%;
+    width: 90%;
+}
+
+.backgrounds {
+    background-color: #669999;
+    width: 19%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.writer {
+    background-color: #669999;
+    width: 19%;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input[type=text], input[type=email], input[type=tel] {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    box-sizing: border-box;
+    font-size: 2vw;
+}
+
+.submit {
+    background-color: #666699;
+    padding: 14px 32px;
+    border: none;
+    margin-top: 25px;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.submit:hover {
+    background-color: #178f53;
+}
+
+.IXML {
+    background-color: #666699;
+    padding: 14px 32px;
+    border: none;
+    margin-top: 25px;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.IXML:hover {
+    background-color: #178f53;
+}
+
+.PDF {
+    background-color: #666699;
+    padding: 14px 32px;
+    border: none;
+    margin-top: 25px;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.PDF:hover {
+    background-color: #178f53;
+}
+
+.QRC {
+    background-color: #666699;
+    padding: 14px 32px;
+    border: none;
+    margin-top: 25px;
+    font-size: 16px;
+    border-radius: 12px;
+}
+
+.QRC:hover {
+    background-color: #178f53;
+}
+
+@media screen and (max-width:1000px) {
+    .center {
+        flex-direction: column;
+    }
+    .mainFrame {
+        width: 100%;
+    }
+    .picker {
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+    }
+    .cardData {
+        width: 100%;
+    }
+    .continut {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .imagine img {
+        width: 100%;
+    }
+    .distribuie {
+        padding: 7px 16px;
+        font-weight: 600;
+        font-size: 2vw;
+    }
+    .Download {
+        padding: 7px 16px;
+        font-weight: 600;
+        font-size: 2vw;
+    }
+    .sectiuneImagine {
+        width: 100%;
+    }
+    .sectiuneText {
+        width: 100%;
+    }
+    .text {
+        font-size: 4vw;
+    }
+    .user {
+        font-size: 3vw;
+    }
+}

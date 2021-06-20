@@ -14,7 +14,7 @@
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/Creator.css">
+        <link rel="stylesheet" href="css/business.css">
         <link rel="stylesheet" href="css/footer.css">
         <script type="text/javascript" src="js/creator.js"></script>
     </head>
@@ -44,8 +44,9 @@
                 </header>
             </div>
     	<!-- Aici se termina header-ul-->
+
+        <!-- Main Frame-->
         <div class="center">
-            
             <div class="mainFrame">
                 <div id="card" class="card" style="width:500px;height:500px;">
                      <!-- <img id="frame"/> -->
@@ -55,70 +56,31 @@
                 </div>
             </div>
             
-            <div id="picker" class="picker">
+            <div class="backgrounds">
+                
+            </div>
 
+            <div class="writer">
+                <form method="POST">
+                    <input type="text" name="name" placeholder="Name" Required>
+                    <br/>
+                    <input type="email" name="email" placeholder="Email" Required>
+                    <br/>
+                    <input type="tel" name="phone" placeholder="Phone nr." Required>
+                    <br/>
+                    <input type="text" name="adress" placeholder="Adress" Required>
+                    <br/>
+                    <input type="submit" name="submit" class= "submit" value="Submit">
+                    <br/>
+                    <button class="IXML" type="button" name="Download">Import XML</button>
+                    <br/>
+                    <button class="PDF" type="button" name="Download">Export PDF</button>
+                    <br/>
+                    <button class="QRC" type="button" name="Download">QR Code</button>
+                </form>
             </div>
             
-            <div class="buttons">
-                <a class="creatorButton" onclick="loadFrames()"><img src="images/frame.png" alt="Frames" ></a>
-                <a class="creatorButton" onclick="loadStickers()"><img src="images/image.png" alt="Photos"></a>
-                <a class="creatorButton" onclick="AddText()"><img src="images/text.png" alt="Text"> </a>
-                <a class="creatorButton" onclick="loadBusinessBckg()"><img src="images/background.png" alt="Backgrounds"></a>
-                <a href='publish.php' class="creatorButton" id="pubprivate" onclick="publish()">Publish!</a>
-                <a href='#' class="creatorButton" id="pubcommunity" onclick="saveCanvas()">Publish to comunity</a>
             </div>
-
-            <script>
-                function loadFrames() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            document.getElementById("picker").innerHTML = this.responseText;
-                            //console.log(this.responseText);
-                        }
-                    };
-                    xhttp.open("GET", "ajax/frames.php", true);
-                    xhttp.responseType = "text";
-                    xhttp.send();
-                }
-
-                function loadStickers() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("picker").innerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open("GET", "ajax/stickers.php", true);
-                    xhttp.responseType = "text";
-                    xhttp.send();
-                }
-
-                function loadBackgrounds() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("picker").innerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open("GET", "ajax/backgrounds.php", true);
-                    xhttp.responseType = "text";
-                    xhttp.send();
-                }
-                function loadBusinessBckg() {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("picker").innerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open("GET", "ajax/businessbackground.php", true);
-                    xhttp.responseType = "text";
-                    xhttp.send();
-                }
-            </script>   
-        </div>
-		<!-- De aici incepe footer-ul -->
-		<!-- Aici se termina footer-ul -->
+        <!-- Main Frame-->
     </body>
 </html>
