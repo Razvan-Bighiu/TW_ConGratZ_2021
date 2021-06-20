@@ -83,6 +83,7 @@ input[type=text], input[type=email], input[type=tel] {
 
 .submit {
     background-color: #666699;
+    color: honeydew;
     padding: 14px 32px;
     border: none;
     margin-top: 25px;
@@ -96,6 +97,7 @@ input[type=text], input[type=email], input[type=tel] {
 
 .IXML {
     background-color: #666699;
+    color: honeydew;
     padding: 14px 32px;
     border: none;
     margin-top: 25px;
@@ -109,6 +111,7 @@ input[type=text], input[type=email], input[type=tel] {
 
 .PDF {
     background-color: #666699;
+    color: honeydew;
     padding: 14px 32px;
     border: none;
     margin-top: 25px;
@@ -122,6 +125,7 @@ input[type=text], input[type=email], input[type=tel] {
 
 .QRC {
     background-color: #666699;
+    color: honeydew;
     padding: 14px 32px;
     border: none;
     margin-top: 25px;
