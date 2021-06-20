@@ -6,15 +6,37 @@ addEventListener(onkeypress, moveFrameDown);
 
 function AddText() {
     text = prompt("Please enter your text", "");
-    context.font = "30px Calibri";
-    console.log(context.measureText(text).height);
+
+    if (text == null ||
+        text.includes("<html>") ||
+        text.includes("</html>") ||
+        text.includes("<script>") ||
+        text.includes("</script>") ||
+        text.includes("<")) {
+        text = "";
+        return;
+    }
+
+    //context.font = "30px Calibri";
+    var line = document.createElement("p");
+    line.innerHTML = text;
+    line.classList.add("draggable");
+    line.style.fontSize = "20pt";
+    line.style.fontFamily = "Arial";
+    line.style.fontWeight = "Bold";
+    if (typeof frame_img == 'undefined') {
+        document.getElementById("card").appendChild(line);
+    } else {
+        document.getElementById("card").insertBefore(line, frame_img);
+    }
+    loadDrag();
 }
 
 function addFrame(frame_imgid) {
     if (typeof frame_img == 'undefined') {
         frame_img = document.createElement("img");
     }
-    frame_img.src = "./creator/frames/frame" + frame_imgid + ".png";
+    frame_img.src = "./creator/frames/frame" + frame_imgid + ".gif";
     document.getElementById("card").append(frame_img);
     loadDrag();
 }
@@ -103,6 +125,38 @@ function moveFrameUp() {
     }
     console.log("moved up");
 }
+
+function saveCanvas() {
+    hiddenCanvas = document.getElementById("hiddenCanvas");
+    hiddenContext = hiddenCanvas.getContext("2d");
+    hiddenContext.font = "bold 30px arial";
+    hiddenContext.textBaseline = "top";
+
+    greetingCard = document.getElementById("card");
+    var elements = greetingCard.querySelectorAll(".card > *");
+
+    hiddenContext.drawImage(elements[0], 0, 0, hiddenCanvas.width, hiddenCanvas.height);
+    console.log("put element " + elements[0].src + " at " + 0 + " and " + 0);
+
+    for (let i = 1; elements[i]; i++) {
+        var pos1 = (elements[i].offsetLeft);
+        var pos2 = (elements[i].offsetTop);
+
+        if (elements[i].tagName == 'IMG') {
+
+            hiddenContext.drawImage(elements[i], pos1, pos2);
+            //console.log("put element " + elements[i].src + " at " + pos1 + " and " + pos2);
+        } else if (elements[i].tagName == 'P') {
+            hiddenContext.fillText(elements[i].innerHTML, pos1, pos2);
+            console.log(elements[i].innerHTML);
+        }
+    }
+
+    var topimage = document.createElement("img");
+    topimage.src = hiddenCanvas.toDataURL();
+    document.getElementById("card").append(topimage);
+}
+
 
 function publish() {
     // var data = new FormData();
