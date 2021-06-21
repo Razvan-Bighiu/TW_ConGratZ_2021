@@ -112,7 +112,6 @@ function saveBCard() {
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     saveCanvas();
-    console.log(bCard);
     if (xmlImported) {
         params = "xml=" + xmlData + '&';
     } else {
@@ -120,15 +119,6 @@ function saveBCard() {
     }
 
     xhr.send(params);
-
-
-    // var blob = new Blob(chunks, { 'type' : 'audio/webm' });
-    // var xhr = new XMLHttpRequest();
-    // xhr.open('POST', '/speech', true);
-    // xhr.onload = function(e) {
-    //   console.log('Sent');
-    // };
-    // xhr.send(blob);
 }
 
 

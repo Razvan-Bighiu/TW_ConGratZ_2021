@@ -7,7 +7,7 @@
     // $path = $_POST['path'];
     $xml = $_POST['xml'];
     $card = $_POST['card'];
-    echo $_POST['card'];
+
 //    $insert = $pdo->query("INSERT INTO `businesscards` (`xml`, `card`) VALUES ('$xml', '$card')");
     $data = [
         'xml' => $xml,
@@ -20,6 +20,5 @@
     $stmt = $pdo->query("SELECT LAST_INSERT_ID()");
     $lastId = $stmt->fetchColumn();
 
-    //header("Location: bcardviewer.php?id=".$lastId);
-    echo $lastId;
+    header("Location: bcardviewer.php?id=".$lastId);
 ?>
