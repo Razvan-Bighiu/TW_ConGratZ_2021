@@ -38,9 +38,11 @@ function addFrame(frame_imgid) {
         frame_img = document.createElement("img");
     }
     frame_img.src = "./creator/frames/frame" + frame_imgid + ".gif";
-    frame_img.style.maxWidth = "500px";
-    frame_img.style.height = "500px";
-    frame_img.style.clipPath = "polygon(20% 40%, 86% 38%, 100% 100%, 0 100%)"
+    frame_img.style.top = "250px";
+    frame_img.style.left = "250px";
+    frame_img.style.maxWidth = "200px";
+    frame_img.style.height = "200px";
+    frame_img.style.clipPath = "ellipse(44% 40% at 50% 50%)";
     document.getElementById("card").append(frame_img);
     loadDrag();
 }
