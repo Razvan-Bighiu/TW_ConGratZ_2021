@@ -92,7 +92,8 @@ form {
 
 input[type=text],
 input[type=email],
-input[type=tel] {
+input[type=tel], 
+input[type=url] {
     width: 80%;
     padding: 12px 20px;
     margin: 8px 0;

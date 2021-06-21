@@ -26,8 +26,9 @@ function placetext() {
     email = document.createElement("P");
     tel = document.createElement("p");
     addr = document.createElement("P");
+    website = document.createElement("P");
 
-    if (!(verify(uName.innerHTML) && verify(email.innerHTML) && verify(tel.innerHTML) && verify(addr.innerHTML))) {
+    if (!(verify(uName.innerHTML) && verify(email.innerHTML) && verify(tel.innerHTML) && verify(addr.innerHTML) && verify(website.innerHTML))) {
         return;
     }
 
@@ -37,6 +38,7 @@ function placetext() {
     setConfig(email);
     setConfig(tel);
     setConfig(addr);
+    setConfig(website);
     // "nameField" type="text" name="name" placeholder="Name" Required>
     // <input id="emailField" type="email" name="email" placeholder="Email" Required>
     // <input id="telField" type="tel" name="phone" placeholder="Phone nr." Required>
@@ -45,7 +47,7 @@ function placetext() {
     email.innerHTML = document.getElementById("emailField").value;
     tel.innerHTML = document.getElementById("telField").value;
     addr.innerHTML = document.getElementById("addrField").value;
-
+    website.innerHTML = document.getElementById("siteField").value;
 
 
     uName.style.top = "351px";
@@ -60,11 +62,15 @@ function placetext() {
     email.style.top = "226px";
     email.style.left = "370px";
 
+    website.style.top = "298px";
+    website.style.left = "370px";
+
 
     document.getElementById("card").appendChild(uName);
     document.getElementById("card").appendChild(addr);
     document.getElementById("card").appendChild(email);
     document.getElementById("card").appendChild(tel);
+    document.getElementById("card").appendChild(website);
 
 }
 

@@ -66,6 +66,7 @@
                     <input id="emailField" type="email" name="email" placeholder="Email" Required>
                     <input id="telField" type="tel" name="phone" placeholder="Phone nr." Required>
                     <input id="addrField" type="text" name="adress" placeholder="Adress" Required>
+                    <input id="siteField" type="url" name="website" placeholder="Website" Required>
                     <button id="generatebutton" class="PDF" type="button" onclick="placetext()">Generate</button>
                     <button class="IXML" type="button" name="Download">Import XML</button>
                     <button class="PDF" type="button" name="Download">Export PDF</button>
