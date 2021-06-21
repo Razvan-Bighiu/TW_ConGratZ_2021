@@ -38,22 +38,30 @@ function addFrame(frame_imgid) {
         frame_img = document.createElement("img");
     }
     frame_img.src = "./creator/frames/frame" + frame_imgid + ".gif";
-    frame_img.style.maxWidth = "500px";
-    frame_img.style.height = "500px";
-    frame_img.style.clipPath = "polygon(20% 40%, 86% 38%, 100% 100%, 0 100%)"
-    document.getElementById("card").append(frame_img);
+    frame_img.style.top = "250px";
+    frame_img.style.left = "250px";
+    frame_img.style.maxWidth = "200px";
+    frame_img.style.height = "200px";
+    frame_img.style.clipPath = "elipse(44% 40% at 50% 50%)";
+
+    if (typeof background == 'undefined') {
+        document.getElementById("card").prepend(frame_img);
+    } else {
+        insertAfter(frame_img, background);
+    }
     loadDrag();
+}
+
+function insertAfter(newElement, referenceElement) {
+    referenceElement.parentNode.insertBefore(newElement, referenceElement.nextSibling);
 }
 
 function addSticker(sticker) {
     var sticker_img = document.createElement("img");
     sticker_img.classList.add("draggable");
     sticker_img.src = "./creator/stickers/sticker" + sticker + ".png";
-    if (typeof frame_img == 'undefined') {
-        document.getElementById("card").appendChild(sticker_img);
-    } else {
-        document.getElementById("card").insertBefore(sticker_img, frame_img);
-    }
+
+    document.getElementById("card").appendChild(sticker_img);
     loadDrag();
 }
 
@@ -119,25 +127,25 @@ function dragElement(elmnt) {
     }
 }
 
-function moveFrameDown() {
-    if (typeof frame_img != 'undefined') {
-        var temp_frame = frame_img;
-        frame_img.remove();
-        background.parentNode.insertBefore(temp_frame, background.nextSibling);
-        frame_img = temp_frame;
-    }
-    console.log("moved down");
-}
+// function moveFrameDown() {
+//     if (typeof frame_img != 'undefined') {
+//         var temp_frame = frame_img;
+//         frame_img.remove();
+//         background.parentNode.insertBefore(temp_frame, background.nextSibling);
+//         frame_img = temp_frame;
+//     }
+//     console.log("moved down");
+// }
 
-function moveFrameUp() {
-    if (typeof frame_img != 'undefined') {
-        var temp_frame = frame_img;
-        frame_img.remove();
-        document.getElementById("card").append(frame_img);
-        frame_img = temp_frame;
-    }
-    console.log("moved up");
-}
+// function moveFrameUp() {
+//     if (typeof frame_img != 'undefined') {
+//         var temp_frame = frame_img;
+//         frame_img.remove();
+//         document.getElementById("card").append(frame_img);
+//         frame_img = temp_frame;
+//     }
+//     console.log("moved up");
+// }
 
 function saveCanvas() {
     hiddenCanvas = document.getElementById("hiddenCanvas");
