@@ -61,7 +61,7 @@
             </div>
 
             <div class="writer">
-                <form>
+                <form action="addvcard.php" method="POST">
                     <input id="nameField" type="text" name="name" placeholder="Name" Required>
                     <input id="emailField" type="email" name="email" placeholder="Email" Required>
                     <input id="telField" type="tel" name="phone" placeholder="Phone nr." Required>
@@ -70,7 +70,7 @@
                     <button id="generatebutton" class="PDF" type="button" onclick="placetext()">Generate</button>
                     <button class="IXML" type="button" name="Download">Import XML</button>
                     <button class="PDF" type="button" name="Download">Export PDF</button>
-                    <button class="QRC" type="button" name="Download">QR Code</button>
+                    <button class="QRC" type="button" name="Download">Save</button>
                 </form>
             </div>
             
