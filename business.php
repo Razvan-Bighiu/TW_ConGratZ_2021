@@ -48,10 +48,10 @@
         <!-- Main Frame-->
         <div class="center">
             <div class="mainFrame">
-                <div id="card" class="card" style="width:500px;height:500px;">
+                <div id="card" class="card" style="width:700px;height:400px;">
                      <!-- <img id="frame"/> -->
                     <!-- <canvas class="canvas" id="canvas"></canvas> -->
-                    <canvas id="hiddenCanvas" style="display:none" width="500" height="500"></canvas>
+                    <canvas id="hiddenCanvas" style="display:none" width="700" height="400"></canvas>
                     <!-- <img src="https://cdn.shopify.com/s/files/1/0222/9834/products/shutterstock_754419700_1024x1024.jpg?v=1588706826" alt="This is where the card goes"/> -->
                 </div>
             </div>
@@ -62,40 +62,19 @@
 
             <div class="writer">
                 <form>
-                    <input type="text" name="name" placeholder="Name" Required>
-                    <br/>
-                    <input type="email" name="email" placeholder="Email" Required>
-                    <br/>
-                    <input type="tel" name="phone" placeholder="Phone nr." Required>
-                    <br/>
-                    <input type="text" name="adress" placeholder="Adress" Required>
-                    <br/>
-                    <input type="submit" name="submit" class= "submit" value="Submit">
-                    <br/>
+                    <input id="nameField" type="text" name="name" placeholder="Name" Required>
+                    <input id="emailField" type="email" name="email" placeholder="Email" Required>
+                    <input id="telField" type="tel" name="phone" placeholder="Phone nr." Required>
+                    <input id="addrField" type="text" name="adress" placeholder="Adress" Required>
+                    <button id="generatebutton" class="PDF" type="button" onclick="placetext()">Generate</button>
                     <button class="IXML" type="button" name="Download">Import XML</button>
-                    <br/>
                     <button class="PDF" type="button" name="Download">Export PDF</button>
-                    <br/>
                     <button class="QRC" type="button" name="Download">QR Code</button>
                 </form>
             </div>
             
             </div>
         <!-- Main Frame-->
-        <script>
-            window.onload = (event) => { loadBusinessBkg() };
-            function loadBusinessBkg() {
-                var xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("picker").innerHTML = this.responseText;
-                        // console.log(this.responseText);
-                    }
-                };
-                xhttp.open("GET", "ajax/businessbackground.php", true);
-                xhttp.responseType = "text";
-                xhttp.send();
-            }
-        </script>   
+        <script type="text/javascript" src="js/bcreator.js"></script>   
     </body>
 </html>

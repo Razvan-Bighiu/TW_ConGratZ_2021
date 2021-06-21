@@ -86,11 +86,13 @@
 form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
-input[type=text], input[type=email], input[type=tel] {
+input[type=text],
+input[type=email],
+input[type=tel] {
     width: 80%;
     padding: 12px 20px;
     margin: 8px 0;
