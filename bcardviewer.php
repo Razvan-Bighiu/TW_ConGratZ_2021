@@ -64,7 +64,8 @@
 		<div class="continut">
 			<div class="sectiuneImagine">
 				<div class="card" id="card" style="width:500px;height:500px; display:flex; position:relative;">
-                    <img src="<?php echo $image['card']?>" alt="Felicitare">
+                    <img src="<?php echo $image['card']; ?>" alt="Felicitare">
+
 				</div>
 				<div class="butoane">
 					<a class="distribuie" href="">Distribuie</a>
