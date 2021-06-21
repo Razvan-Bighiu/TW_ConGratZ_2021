@@ -69,13 +69,37 @@
                     <input id="siteField" type="url" name="website" placeholder="Website" Required>
                     <button id="generatebutton" class="PDF" type="button" onclick="placetext()">Generate</button>
                     <button class="IXML" type="button" name="Download">Import XML</button>
-                    <button class="PDF" type="button" name="Download">Export PDF</button>
-                    <button class="QRC" type="button" name="Download">Save</button>
+                    <button class="PDF" type="button" name="Download" onclick="expPDF()">Export PDF</button>
+                    <button class="QRC" type="button" name="Download" onclick="saveBCard()">Save</button>
                 </form>
             </div>
             
             </div>
         <!-- Main Frame-->
         <script type="text/javascript" src="js/bcreator.js"></script>   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.debug.js"></script>
+        <script>
+        var expPDF = function() {
+            saveCanvas();
+            getImageFromUrl(bCard, createPDF);
+        }
+
+        var getImageFromUrl = function(url, callback) {
+            var img = new Image();
+
+            img.onError = function() {
+                alert('Cannot load image: "' + url + '"');
+            };
+            img.onload = function() {
+                callback(img);
+            };
+            img.src = url;
+        }
+        var createPDF = function(imgData) {
+            var doc = new jsPDF();
+            doc.addImage(imgData, 'JPEG', 10, 10, imgData.offsetWidth, imgData.offsetHeight, 'monkey');
+            doc.save("bcard.pdf");
+        }
+    </script>   
     </body>
 </html>

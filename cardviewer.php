@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="css/CardView.css">
 		<link rel="stylesheet" href="css/ImagePOPUp.css">
 		<link rel="stylesheet" href="css/footer.css">
+		<link rel="stylesheet" href="css/Creator.css">
 	</head>
 	<body>
 	<!-- De aici incepe header-ul -->
@@ -62,8 +63,9 @@
     	<!-- Aici se termina header-ul-->
 		<div class="continut">
 			<div class="sectiuneImagine">
-				<div class="card" id="card">
-					<img src="images/congratz.jpg" alt="Felicitare">
+				<div class="card" id="card" style="width:500px;height:500px; display:flex; position:relative;">
+					<!-- <img src="images/congratz.jpg" alt="Felicitare"> -->
+					<?php echo $image['card']?>
 				</div>
 				<div class="butoane">
 					<a class="distribuie" href="">Distribuie</a>
@@ -86,7 +88,7 @@
 			document.getElementById('cvtext').innerHTML = "<?php echo $image['title'] ?>";
 			document.getElementById('cvuser').innerHTML = "<?php echo $image['creator'] ?>";
 			document.getElementById('cvdesc').innerHTML = "<?php echo $image['description'] ?>";
-			document.getElementById('card').innerHTML = '<?php echo $image['card'] ?>';
+			
 		</script>
 	<div class="footer">
 		<div class="documentation">

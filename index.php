@@ -82,9 +82,9 @@
 		<div class="content home">
 			<div class="images">
 				<?php foreach ($images as $image): ?>
-				<?php if (file_exists($image['path'])): ?>
+				<?php if (isset($image['path'])): ?>
 				<a href="#">
-					<img src="<?=$image['path']?>" alt="<?=$image['description']?>" data-id="<?=$image['id']?>" data-title="<?=$image['title']?>" data-creator="<?=$image['creator']?>" width="300" height="200">
+					<img src=<?=$image['path']?> alt="<?=$image['description']?>" data-id="<?=$image['id']?>" data-title="<?=$image['title']?>" data-creator="<?=$image['creator']?>" width="300" height="200">
 					<span><?=$image['description']?></span>
 				</a>
 				<?php endif; ?>

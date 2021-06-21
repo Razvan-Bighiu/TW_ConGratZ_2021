@@ -9,8 +9,9 @@ if(isset($_POST['submit']))
     $description = $_POST['description'];
     $creator = $_POST['creator'];
     $card = $_POST['card'];
+    $path = $_POST['path'];
 
-    $insert = $pdo->query("INSERT INTO `images`(`title`, `description`, `creator`, `card`) VALUES ('$title','$description', '$creator', '$card')");
+    $insert = $pdo->query("INSERT INTO `images`(`title`, `description`, `creator`, `card`, `path`) VALUES ('$title','$description', '$creator', '$card', '$path')");
 
     if(!$insert)
     {
@@ -19,6 +20,7 @@ if(isset($_POST['submit']))
     else
     {
         header("Location: index.php");
+        //echo($path);
     }
 }
 ?>

@@ -1,9 +1,13 @@
+var xmlImported = false;
+var bCard;
+var xmlData;
+
 window.onload = (event) => { loadBusinessBkg() };
 
 document.getElementById("card").addEventListener('mousemove', e => {
-    var rect = e.target.getBoundingClientRect();
-    console.log("x: " + (e.clientX - rect.left));
-    console.log("y: " + (e.clientY - rect.top));
+    //var rect = e.target.getBoundingClientRect();
+    //console.log("x: " + (e.clientX - rect.left));
+    //console.log("y: " + (e.clientY - rect.top));
 });
 
 function loadBusinessBkg() {
@@ -95,18 +99,57 @@ function verify(text) {
     return true;
 }
 
-function saveBCard(url, data, success) {
-    var params = typeof data == 'string' ? data : Object.keys(data).map(
-        function(k){ return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]) }
-    ).join('&');
-
+function saveBCard() {
+    var params;
     var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject("Microsoft.XMLHTTP");
-    xhr.open('POST', url);
+    xhr.open("POST", "ajax/addbcard.php");
     xhr.onreadystatechange = function() {
-        if (xhr.readyState>3 && xhr.status==200) { success(xhr.responseText); }
+        if (xhr.readyState > 3 && xhr.status == 200) {
+            console.log(xhr.responseText);
+        }
     };
     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    saveCanvas();
+    if (xmlImported) {
+        params = "xml=" + xmlData + '&';
+    } else {
+        params = "xml=&card=" + bCard;
+    }
+
     xhr.send(params);
-    return xhr;
+}
+
+
+
+function saveCanvas() {
+    hiddenCanvas = document.getElementById("hiddenCanvas");
+    hiddenContext = hiddenCanvas.getContext("2d");
+    hiddenContext.font = "bold 15pt arial";
+    hiddenContext.textBaseline = "top";
+
+    greetingCard = document.getElementById("card");
+    var elements = greetingCard.querySelectorAll(".card > *");
+
+    hiddenContext.drawImage(elements[0], 0, 0, hiddenCanvas.width, hiddenCanvas.height);
+    console.log("put element " + elements[0].src + " at " + 0 + " and " + 0);
+
+    for (let i = 1; elements[i]; i++) {
+        var pos1 = (elements[i].offsetLeft);
+        var pos2 = (elements[i].offsetTop);
+
+        if (elements[i].tagName == 'IMG') {
+
+            hiddenContext.drawImage(elements[i], pos1, pos2);
+            //console.log("put element " + elements[i].src + " at " + pos1 + " and " + pos2);
+        } else if (elements[i].tagName == 'P') {
+            hiddenContext.fillText(elements[i].innerHTML, pos1, pos2);
+            //console.log(elements[i].innerHTML);
+        }
+    }
+    bCard = hiddenCanvas.toDataURL();
+    //var topimage = document.createElement("img");
+    //topimage.src = hiddenCanvas.toDataURL();
+    //document.getElementById("card").append(topimage);
 }

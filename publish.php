@@ -44,21 +44,21 @@
         </div>
         <div class="center">
             <div class="mainFrame">
-                <div id="cardImage" class="card">
+                <div id="cardImage" class="card" style="width:500px;height:500px;">
                 <!-- <img id="cardImagine" src="">
                 <div id="cardImage" class="card"></div> -->
                 </div>
             </div>
             <div class="cardData">
                 <form action="insert.php" method="POST">
-                    Title: <input type="text" name="title" placeholder="Scrie un titlu" Required>
+                    Title:<br/> <input type="text" name="title" placeholder="Scrie un titlu" Required>
                     <br/>
-                    Description: <input type="text" name="description" placeholder="Scrie o descriere" Required>
+                    Description: <br/>
+                    <input type="text" name="description" placeholder="Scrie o descriere" Required>
+                    
                     <input type="hidden" name="creator" value=<?php echo $curr_username?> >
-                    <br/>
-                    <input id="thumbnail" type='hidden' name='file'/>
-                    <br/>
-                    <input type='submit' value='Upload Image' name='but_upload'>
+                    
+                    <input id="thumbnail" type='hidden' name='path'/>
                     <br/>
                     <input type="hidden" name="card" id="card">
                     <input type="submit" name="submit" value="Submit">
@@ -81,9 +81,9 @@
             //document.getElementById("cardImage").src=sessionStorage.getItem('card');
             document.getElementById("card").setAttribute("value", sessionStorage.getItem('text-html'));
             document.getElementById("cardImage").innerHTML=sessionStorage.getItem('text-html');
-            document.getElementById("thumbnail").setAttribute("value", sessionStorage.getItem('card'));
-            
-            console.log(sessionStorage.getItem('text-html'));
+            document.getElementById("thumbnail").setAttribute("value", sessionStorage.getItem("gCard"));
+
+            //console.log(sessionStorage.getItem("gCard"));
         </script>
     </body>
 </html>

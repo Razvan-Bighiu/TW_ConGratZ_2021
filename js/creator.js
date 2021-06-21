@@ -1,6 +1,7 @@
 var background;
 var frame_img;
 var draggableElements;
+var gCard;
 
 addEventListener(onkeypress, moveFrameDown);
 
@@ -164,9 +165,11 @@ function saveCanvas() {
         }
     }
 
-    var topimage = document.createElement("img");
-    topimage.src = hiddenCanvas.toDataURL();
-    document.getElementById("card").append(topimage);
+    gCard = hiddenCanvas.toDataURL();
+
+    //var topimage = document.createElement("img");
+    //topimage.src = hiddenCanvas.toDataURL();
+    //document.getElementById("card").append(topimage);
 }
 
 
@@ -179,6 +182,7 @@ function publish() {
     // xmlhttp.send(data);
 
     //    sessionStorage.setItem("card", canvas.toDataURL());
+    saveCanvas();
     download();
 }
 
@@ -186,7 +190,8 @@ function download() {
     var a;
     a = document.getElementById("card").innerHTML;
     sessionStorage.setItem("text-html", a);
-    console.log(sessionStorage.getItem('text-html'));
+    sessionStorage.setItem("gCard", gCard);
+    console.log(gCard);
 }
 
 /*var canvas, context, hiddenCanvas, hiddenContext;
