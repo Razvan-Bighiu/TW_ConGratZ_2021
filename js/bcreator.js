@@ -105,7 +105,8 @@ function saveBCard() {
     xhr.open("POST", "ajax/addbcard.php");
     xhr.onreadystatechange = function() {
         if (xhr.readyState > 3 && xhr.status == 200) {
-            console.log(xhr.responseText);
+            //console.log(xhr.responseText);
+            window.location.href = "./bcardviewer.php?id=" + xhr.responseText;
         }
     };
     xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');

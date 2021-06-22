@@ -20,5 +20,6 @@
     $stmt = $pdo->query("SELECT LAST_INSERT_ID()");
     $lastId = $stmt->fetchColumn();
 
-    header("Location: bcardviewer.php?id=".$lastId);
+    echo $lastId;
+    //header("Location: ../bcardviewer.php?id=".$lastId);
 ?>
