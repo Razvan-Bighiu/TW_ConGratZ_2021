@@ -113,7 +113,6 @@
 											</a>
 											</div>
 											<div class="butoane">
-												<a class="distribuie" type="button" name="CopyLink" href="${img.src}">Copy Link</a>
 												<a class="Download" type="button" name="Download" href="${img.src}" download="${img.src}">Download</a>
 											</div>
 										</div>
@@ -144,6 +143,15 @@
 						image_popup.style.display = "none";
 					}
 				};
+
+				async function copyPageUrl() {
+                try {
+                    await navigator.clipboard.writeText(location.href);
+                    console.log('Page URL copied to clipboard');
+                } catch (err) {
+                    console.error('Failed to copy: ', err);
+                }
+            }
 			</script>
 		</div>
 		<!-- Aici se termina galeria -->

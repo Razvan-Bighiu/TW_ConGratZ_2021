@@ -68,8 +68,9 @@
 					<?php echo $image['card']?>
 				</div>
 				<div class="butoane">
-					<a class="distribuie" href="">Distribuie</a>
-					<button class="Download" type="button" name="Download">Download</button>
+					<a class="distribuie" href="mailto: ?subject = BusinessCard&body =" name="Share">Send as E-mail</a>
+                    <button class="Download" type="button" name="Copy Link" onclick=copyPageUrl()>Copy Link</button>
+
 				</div>
 			</div>
 			<div class="sectiuneText">
@@ -89,6 +90,23 @@
 			document.getElementById('cvuser').innerHTML = "<?php echo $image['creator'] ?>";
 			document.getElementById('cvdesc').innerHTML = "<?php echo $image['description'] ?>";
 			
+			function copy(text) {
+  				var input = document.body.appendChild(document.createElement("input"));
+  				input.value = text;
+  				input.focus();
+  				input.select();
+  				document.execCommand('copy');
+  				input.parentNode.removeChild(input);
+			}
+
+			async function copyPageUrl() {
+                try {
+                    await navigator.clipboard.writeText(location.href);
+                    console.log('Page URL copied to clipboard');
+                } catch (err) {
+                    console.error('Failed to copy: ', err);
+                }
+            }
 		</script>
 	<div class="footer">
 		<div class="documentation">

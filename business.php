@@ -62,13 +62,13 @@
 
             <div class="writer">
                 <form action="addvcard.php" method="POST">
-                    <input id="nameField" type="text" name="name" placeholder="Name" Required>
-                    <input id="emailField" type="email" name="email" placeholder="Email" Required>
-                    <input id="telField" type="tel" name="phone" placeholder="Phone nr." Required>
-                    <input id="addrField" type="text" name="adress" placeholder="Adress" Required>
-                    <input id="siteField" type="url" name="website" placeholder="Website" Required>
+                    <input id="nameField" type="text" name="name" placeholder="Name">
+                    <input id="emailField" type="email" name="email" placeholder="Email">
+                    <input id="telField" type="tel" name="phone" placeholder="Phone nr.">
+                    <input id="addrField" type="text" name="adress" placeholder="Adress">
+                    <input id="siteField" type="url" name="website" placeholder="Website">
                     <button id="generatebutton" class="PDF" type="button" onclick="placetext()">Generate</button>
-                    <button class="IXML" type="button" name="Download">Import XML</button>
+                    <!-- <button class="IXML" type="button" name="Download">Import XML</button> -->
                     <button class="PDF" type="button" name="Download" onclick="expPDF()">Export PDF</button>
                     <button class="QRC" type="button" name="Download" onclick="saveBCard()">Save</button>
                 </form>

@@ -62,7 +62,6 @@
                 <a class="creatorButton" onclick="AddText()"><img src="images/text.png" alt="Text"> </a>
                 <a class="creatorButton" onclick="loadBackgrounds()"><img src="images/background.png" alt="Backgrounds"></a>
                 <a href='publish.php' class="creatorButton" id="pubprivate" onclick="publish()">Publish!</a>
-                <a href='#' class="creatorButton" id="pubcommunity" onclick="saveCanvas()">Publish to comunity</a>
             </div>
 
             <script>

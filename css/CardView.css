@@ -54,19 +54,37 @@ body {
 
 .distribuie {
 	background-color: #339966;
+	border: none;
 	color: white;
 	text-decoration: none;
+	display: inline-block;
 	vertical-align: middle;
 	padding: 7px 14px;
 	border-radius: 12px;
 	font-size: 12px;
 	font-weight: 600;
 	font-family: Arial;
-	margin-left: 10px;
+	margin: 10px;
 }
 
 .Download {
 	background-color: #9999ff;
+  	border: none;
+  	color: white;
+  	padding: 7px 14px;
+  	text-align: center;
+  	text-decoration: none;
+ 	display: inline-block;
+ 	font-weight: 600;
+ 	font-size: 12px;
+ 	font-family: Arial; 
+  	margin: 4px 2px;
+  	cursor: pointer;
+  	border-radius: 12px;
+}
+
+.qr {
+	background-color: #CCCC9A;
   	border: none;
   	color: white;
   	padding: 7px 14px;

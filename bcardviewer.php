@@ -67,17 +67,18 @@
                     <img src="<?php echo $image['card']?>" alt="Felicitare">
 				</div>
 				<div class="butoane">
-					<a class="distribuie" href="mailto: ?subject = BusinessCard&body =">Send as E-mail</a>
-					<button class="Download" type="button" name="Download">Download</button>
+					<a class="distribuie" href="mailto: ?subject = BusinessCard&body =" name="Share">Send as E-mail</a>
+                    <button class="Download" type="button" name="Copy Link" onclick=copyPageUrl()>Copy Link</button>
 				</div>
 			</div>
 			<div class="sectiuneText">
                 <div id="qrcode">
-                    <button class="Download" type="button" name="QR Code" onclick="generateQR()">QR Code</button>
+                    <button class="qr" type="button" name="QR Code" onclick="generateQR()">QR Code</button>
                 </div>
 
 			</div>
 		</div>
+
 		<script src="./js/qrcode.min.js"></script>
         <script>
             var qrcode = new QRCode("qrcode");
@@ -97,7 +98,17 @@
             function generateQR(){
                 qrcode.makeCode(window.location.href);
             }
+
+            async function copyPageUrl() {
+                try {
+                    await navigator.clipboard.writeText(location.href);
+                    console.log('Page URL copied to clipboard');
+                } catch (err) {
+                    console.error('Failed to copy: ', err);
+                }
+            }
         </script>
+
 	<div class="footer">
 		<div class="documentation">
 			<a href="documentation/Documentation.html" class="Documentation">Documentation</a>
