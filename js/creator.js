@@ -3,7 +3,7 @@ var frame_img;
 var draggableElements;
 var gCard;
 
-addEventListener(onkeypress, moveFrameDown);
+//addEventListener(onkeypress, moveFrameDown);
 
 function AddText() {
     text = prompt("Please enter your text", "");
