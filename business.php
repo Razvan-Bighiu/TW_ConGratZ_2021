@@ -61,17 +61,26 @@
             </div>
 
             <div class="writer">
+<<<<<<< Updated upstream
                 <form action="addvcard.php" method="POST">
+=======
+                <form action="addbcard.php" method="POST">
+>>>>>>> Stashed changes
                     <input id="nameField" type="text" name="name" placeholder="Name">
                     <input id="emailField" type="email" name="email" placeholder="Email">
                     <input id="telField" type="tel" name="phone" placeholder="Phone nr.">
                     <input id="addrField" type="text" name="adress" placeholder="Adress">
                     <input id="siteField" type="url" name="website" placeholder="Website">
                     <button id="generatebutton" class="PDF" type="button" onclick="placetext()">Generate</button>
+<<<<<<< Updated upstream
                     <!-- <button class="IXML" type="button" name="Download">Import XML</button> -->
+=======
+>>>>>>> Stashed changes
                     <button class="PDF" type="button" name="Download" onclick="expPDF()">Export PDF</button>
                     <button class="QRC" type="button" name="Download" onclick="saveBCard()">Save</button>
+                    <input class="IXML" type="file" id="file-input" />
                 </form>
+                <pre id="file-content"></pre>
             </div>
             
             </div>
@@ -100,6 +109,45 @@
             doc.addImage(imgData, 'JPEG', 10, 10, imgData.offsetWidth, imgData.offsetHeight, 'monkey');
             doc.save("bcard.pdf");
         }
-    </script>   
+
+        
+        function readSingleFile(e) {
+            var file = e.target.files[0];
+            if (!file) {
+                return;
+            }
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var contents = e.target.result;
+                displayContents(contents);
+            };
+            reader.readAsText(file);
+        }
+
+        function displayContents(contents) {
+            var element = document.getElementById('file-content');
+            element.textContent = contents;
+        }
+
+        document.getElementById('file-input')
+        .addEventListener('change', readSingleFile, false);
+
+        function myFunction(xml) {
+            var i;
+            var xmlDoc = xml.responseXML;
+            var table="<tr><th>Name</th><th>Email</th><th>Phone</th></tr>";
+            var x = xmlDoc.getElementsByTagName("card");
+            for (i = 0; i <x.length; i++) { 
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+                    "</td><td>" +
+                    x[i].getElementsByTagName("email")[0].childNodes[0].nodeValue +
+                    "</td></td>" +
+                    x[i].getElementsByTagName("phone")[0].childNodes[0].nodeValue +
+                    "</td></tr>";
+            }
+            document.getElementById("demo").innerHTML = table;
+        }
+        </script>   
     </body>
 </html>
