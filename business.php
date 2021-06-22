@@ -68,7 +68,7 @@
                     <input id="addrField" type="text" name="adress" placeholder="Adress" Required>
                     <input id="siteField" type="url" name="website" placeholder="Website" Required>
                     <button id="generatebutton" class="PDF" type="button" onclick="placetext()">Generate</button>
-                    <button class="IXML" type="button" name="Download">Import XML</button>
+                    <!-- <button class="IXML" type="button" name="Download">Import XML</button> -->
                     <button class="PDF" type="button" name="Download" onclick="expPDF()">Export PDF</button>
                     <button class="QRC" type="button" name="Download" onclick="saveBCard()">Save</button>
                 </form>
