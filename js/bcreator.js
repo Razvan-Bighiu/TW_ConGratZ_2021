@@ -115,7 +115,7 @@ function saveBCard() {
     if (xmlImported) {
         params = "xml=" + xmlData + '&';
     } else {
-        params = "xml=&card=" + bCard;
+        params = "xml=&card=" + encodeURIComponent(bCard);
     }
 
     xhr.send(params);
