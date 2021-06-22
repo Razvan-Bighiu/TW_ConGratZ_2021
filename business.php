@@ -61,21 +61,13 @@
             </div>
 
             <div class="writer">
-<<<<<<< Updated upstream
-                <form action="addvcard.php" method="POST">
-=======
                 <form action="addbcard.php" method="POST">
->>>>>>> Stashed changes
                     <input id="nameField" type="text" name="name" placeholder="Name">
                     <input id="emailField" type="email" name="email" placeholder="Email">
                     <input id="telField" type="tel" name="phone" placeholder="Phone nr.">
                     <input id="addrField" type="text" name="adress" placeholder="Adress">
                     <input id="siteField" type="url" name="website" placeholder="Website">
                     <button id="generatebutton" class="PDF" type="button" onclick="placetext()">Generate</button>
-<<<<<<< Updated upstream
-                    <!-- <button class="IXML" type="button" name="Download">Import XML</button> -->
-=======
->>>>>>> Stashed changes
                     <button class="PDF" type="button" name="Download" onclick="expPDF()">Export PDF</button>
                     <button class="QRC" type="button" name="Download" onclick="saveBCard()">Save</button>
                     <input class="IXML" type="file" id="file-input" />
