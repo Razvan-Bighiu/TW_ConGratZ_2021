@@ -42,7 +42,7 @@ function addFrame(frame_imgid) {
     frame_img.style.left = "250px";
     frame_img.style.maxWidth = "200px";
     frame_img.style.height = "200px";
-    frame_img.style.clipPath = "elipse(44% 40% at 50% 50%)";
+    frame_img.style.clipPath = "ellipse(44% 40% at 50% 50%)";
 
     if (typeof background == 'undefined') {
         document.getElementById("card").prepend(frame_img);
